@@ -20,8 +20,22 @@ public class test {
 		hare r = new hare();
 		r.xy = new double[width][height];
 		
+		int[][] map = new int[width][height];
 		for(int i=0 ; i<width;i++){
 			for(int j =0; j<height; j++){
+				
+					map[i][j] = (int)(Math.random() * 2);
+
+					System.out.println("origin map :("+i+","+j+")"+map[i][j]);	
+			}
+		}
+		
+		for(int i=0 ; i<width;i++){
+			for(int j =0; j<height; j++){
+					if(map[i][j]==0){
+						a.xy[i][j] = 0;
+						r.xy[i][j] = 0;
+					}else{
 					Random random = new Random();
 					int temp_num = random.nextInt(5)+1;
 					a.xy[i][j] = temp_num;
@@ -29,6 +43,8 @@ public class test {
 					Random random2 = new Random();
 					int temp_num2 = random2.nextInt(5)+1;
 					r.xy[i][j] = temp_num2;
+					}
+					
 					System.out.println("origin:in("+i+","+j+")puma number:"+a.xy[i][j]+" hare number:"+r.xy[i][j]);	
 			}
 		}

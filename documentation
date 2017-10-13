@@ -1,0 +1,4 @@
+summary of key design decisions and reasons for these:
+for the algorithm, 
+first two animal classes (hare and puma) have been declared to store the information of these.
+and then  
