@@ -16,17 +16,23 @@ import com.animal.puma;
 import com.map.map;
 
 
-
+/**   
+ * 
+ * 
+ * 
+ * @Package: com.action
+ * @author: Fu Yu  
+ * @date: 16/10/2017
+ */
 
 public class main {
-	/**   
-	 * 
-	 * 
-	 * 
-	 * @Package: com.action
-	 * @author: Fu Yu  
-	 * @date: 16/10/2017
-	 */
+
+	/**
+	  * @author Fu Yu
+	  * @date 2017-10-19
+	  * @what generate the density of puma and hare
+	  * @return void
+	  */
 	public static void generateRandomAnimal(int width,int height, puma a, hare r,map m){
 		for(int i=0 ; i<width;i++){
 			for(int j =0; j<height; j++){
