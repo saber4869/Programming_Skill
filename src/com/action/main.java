@@ -57,8 +57,8 @@ public class main {
 	public static void main(String[] args) throws IOException{
 		
 
-		int width = 5;
-		int height = 5;
+		int width = 10;
+		int height = 10;
 		ArrayList list = new ArrayList();
 		puma a = new puma();
 		a.setXy(new double[width][height]);

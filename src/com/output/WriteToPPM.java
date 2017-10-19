@@ -1,3 +1,5 @@
+package com.output;
+
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;

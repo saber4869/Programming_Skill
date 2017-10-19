@@ -1,8 +1,11 @@
 package com.algorithm;
 
+import java.io.IOException;
+
 import com.animal.hare;
 import com.animal.puma;
 import com.map.map;
+import com.output.WriteToPPM;
 
 public class calculateModel {
 	/**   
@@ -11,11 +14,12 @@ public class calculateModel {
 	 * 
 	 * @Package: com.algorithm
 	 * @author: Fu Yu  
+	 * @throws IOException 
 	 * @date: 19/10/2017
 	 */
 	
 	
-	public void calModel(int width,int height, puma a, hare r,map m){
+	public void calModel(int width,int height, puma a, hare r,map m) throws IOException{
 		
 		puma b = new puma();
 		hare u = new hare();
@@ -123,8 +127,8 @@ public class calculateModel {
 			}
 
 			
-		
-			for(int i =0; i <width; i++){
+		//print part
+			/*for(int i =0; i <width; i++){
 				for(int j =0; j< height; j++){
 					
 					System.out.println("in("+i+","+j+")puma number:"+b.getXy()[i][j]+" hare number:"+u.getXy()[i][j]);	
@@ -132,11 +136,18 @@ public class calculateModel {
 				}
 				
 			}
-			System.out.println("");
+			System.out.println("");*/
 			a = b ;
 			r = u ;
 			t = t+0.4;	
 		}
+		
+		WriteToPPM output = new WriteToPPM();
+		output.WritePPM(b.getXy());
+		
+		
+		
+		
 	}
 	
 	
