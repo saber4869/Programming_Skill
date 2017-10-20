@@ -21,6 +21,9 @@ public class calculateModel {
 	
 	public void calModel(int width,int height, puma a, hare r,map m) throws IOException{
 		
+		
+		double timeStep = 0.4;
+		
 		puma b = new puma();
 		hare u = new hare();
 		b.setXy(new double[width][height]);
@@ -119,14 +122,13 @@ public class calculateModel {
 					temp = temp - num*a.getXy()[i][j];
 					temph = temph - num*r.getXy()[i][j];
 					
-					b.getXy()[i][j]= a.getXy()[i][j]+0.4*(0.02*r.getXy()[i][j]*a.getXy()[i][j]-0.06*a.getXy()[i][j]+0.2*temp);
-					u.getXy()[i][j]= r.getXy()[i][j]+0.4*(0.08*r.getXy()[i][j]-0.04*r.getXy()[i][j]*a.getXy()[i][j]+0.2*temph);
+					b.getXy()[i][j]= a.getXy()[i][j]+timeStep*(a.getBirthRate()*r.getXy()[i][j]*a.getXy()[i][j]-a.getMortalityRate()*a.getXy()[i][j]+a.getDiffusionRate()*temp);
+					u.getXy()[i][j]= r.getXy()[i][j]+timeStep*(r.getBirthRate()*r.getXy()[i][j]-r.getPredationRate()*r.getXy()[i][j]*a.getXy()[i][j]+r.getDiffusionRate()*temph);
 					
 				}
 	
 			}
-
-			
+	
 		//print part
 			/*for(int i =0; i <width; i++){
 				for(int j =0; j< height; j++){
@@ -139,15 +141,13 @@ public class calculateModel {
 			System.out.println("");*/
 			a = b ;
 			r = u ;
-			t = t+0.4;	
+			t = t+timeStep;	
 		}
 		
 		WriteToPPM output = new WriteToPPM();
 		output.WritePPM(b.getXy());
 		
-		
-		
-		
+
 	}
 	
 	

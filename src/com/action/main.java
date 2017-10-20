@@ -79,19 +79,9 @@ public class main {
 		//r = gene_h.RandomHare(width, height, r, m);
 		
 
-		
-		/*puma b = new puma();
-		hare u = new hare();
-		b.setXy(new double[width][height]);
-		u.setXy(new double[width][height]);*/
-	
-		
-		
 		calculateModel cal = new calculateModel();
 		cal.calModel(width, height, a, r, m);
-		
-		
-		
+
 		System.out.println("finish");
 	}
 	
