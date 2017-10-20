@@ -26,7 +26,7 @@ public class makeMap {
 				
 					m.map[i][j] = (int)(Math.random() * 2);
 
-					System.out.println("origin map :("+i+","+j+")"+m.map[i][j]);	
+					//System.out.println("origin map :("+i+","+j+")"+m.map[i][j]);	
 			}
 		}
 		
