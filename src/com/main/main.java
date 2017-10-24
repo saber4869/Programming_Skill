@@ -1,4 +1,4 @@
-package com.action;
+package com.main;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -41,7 +41,7 @@ public class main {
 						r.getXy()[i][j] = 0;
 					}else{
 					Random random = new Random();
-					int temp_num = random.nextInt(5)+1;
+					int temp_num = random.nextInt(5)+1; //改成小数
 					a.getXy()[i][j] = temp_num;
 					
 					Random random2 = new Random();
