@@ -41,7 +41,7 @@ public class WriteToPPM {
 			}
 	
 		//write  RGB color into PPM file
-		BufferedWriter writeppm = new BufferedWriter(new FileWriter("out.ppm"));
+		BufferedWriter writeppm = new BufferedWriter(new FileWriter(".\\outputlist\\out.ppm"));
 		writeppm.write("P3");
 		writeppm.newLine();
 		writeppm.write(width + " " + height);
