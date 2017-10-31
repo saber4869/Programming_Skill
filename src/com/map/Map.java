@@ -1,6 +1,9 @@
 package com.map;
-
-public class map {
+/**********************************************
+* 2017-10-16 FuYu create the class
+*
+***********************************************/
+public class Map {
 	
 	/**   
 	 * 
@@ -12,7 +15,7 @@ public class map {
 	 */
 	
 	public int[][] map;
-	public map(){
+	public Map(){
 		
 	}
 	public int[][] getMap() {

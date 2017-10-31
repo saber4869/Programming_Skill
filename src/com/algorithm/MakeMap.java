@@ -1,8 +1,13 @@
 package com.algorithm;
+/**********************************************
+* 2017-10-16 FuYu create the class
+*
+* 2017-10-19 FuYu add the algorithm of making draft map 
+*
+***********************************************/
+import com.map.Map;
 
-import com.map.map;
-
-public class makeMap {
+public class MakeMap {
 	
 	/**   
 	 * 
@@ -13,9 +18,9 @@ public class makeMap {
 	 * @date: 16/10/2017
 	 */
 
-	public map make(int width, int height){
+	public Map make(int width, int height){
 		
-		map m = new map();
+		Map m = new Map();
 		m.setMap(new int[width][height]);
 		
 		

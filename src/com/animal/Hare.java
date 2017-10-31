@@ -1,7 +1,10 @@
 package com.animal;
 
-
-public class hare {
+/**********************************************
+* 2017-10-16 FuYu create the class
+*
+***********************************************/
+public class Hare {
 	/**   
 	 * 
 	 * 
@@ -10,29 +13,34 @@ public class hare {
 	 * @author: Fu Yu  
 	 * @date: 16/10/2017
 	 */
-	private double xy[][];
-	int num;
+	private double location[][];
+	int numOfHare;
 	
 	private double birthRate = 0.08; //r
 	private double predationRate = 0.04; //a
 	private double diffusionRate = 0.2; //k
 	
-	public hare(){
+	public Hare(){
 		
 		
 	}
-	public double[][] getXy() {
-		return xy;
+
+	public double[][] getLocation() {
+		return location;
 	}
-	public void setXy(double xy[][]) {
-		this.xy = xy;
+
+	public void setLocation(double[][] location) {
+		this.location = location;
 	}
-	public int getNum() {
-		return num;
+
+	public int getNumOfHare() {
+		return numOfHare;
 	}
-	public void setNum(int num) {
-		this.num = num;
+
+	public void setNumOfHare(int numOfHare) {
+		this.numOfHare = numOfHare;
 	}
+
 	public double getBirthRate() {
 		return birthRate;
 	}

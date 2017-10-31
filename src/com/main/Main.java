@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.algorithm.calculateModel;
-import com.algorithm.generateRandomHare;
-import com.algorithm.generateRandomPuma;
-import com.algorithm.makeMap;
-import com.animal.hare;
-import com.animal.puma;
-import com.map.map;
+import com.algorithm.CalculateModel;
+import com.algorithm.GenerateRandomHare;
+import com.algorithm.GenerateRandomPuma;
+import com.algorithm.MakeMap;
+import com.animal.Hare;
+import com.animal.Puma;
+import com.map.Map;
 
 
 /**   
@@ -25,7 +25,7 @@ import com.map.map;
  * @date: 16/10/2017
  */
 
-public class main {
+public class Main {
 
 	/**
 	  * @author Fu Yu
@@ -33,23 +33,23 @@ public class main {
 	  * @what generate the density of puma and hare
 	  * @return void
 	  */
-	public static void generateRandomAnimal(int width,int height, puma a, hare r,map m){
+	public static void generateRandomAnimal(int width,int height, Puma puma_1, Hare hare_1,Map mapInfo){
 		for(int i=0 ; i<width;i++){
 			for(int j =0; j<height; j++){
-					if(m.map[i][j]==0){
-						a.getXy()[i][j] = 0;
-						r.getXy()[i][j] = 0;
+					if(mapInfo.map[i][j]==0){
+						puma_1.getLocation()[i][j] = 0;
+						hare_1.getLocation()[i][j] = 0;
 					}else{
 					Random random = new Random();
 					int temp_num = random.nextInt(5)+1; //改成小数
-					a.getXy()[i][j] = temp_num;
+					puma_1.getLocation()[i][j] = temp_num;
 					
 					Random random2 = new Random();
 					int temp_num2 = random2.nextInt(5)+1;
-					r.getXy()[i][j] = temp_num2;
+					hare_1.getLocation()[i][j] = temp_num2;
 					}
 					
-					//System.out.println("origin:in("+i+","+j+")puma number:"+a.xy[i][j]+" hare number:"+r.xy[i][j]);	
+					//System.out.println("origin:in("+i+","+j+")puma number:"+a.Location[i][j]+" hare number:"+r.Location[i][j]);	
 			}
 		}
 	}
@@ -60,18 +60,18 @@ public class main {
 		int width = 500;
 		int height = 500;
 		ArrayList list = new ArrayList();
-		puma a = new puma();
-		a.setXy(new double[width][height]);
-		hare r = new hare();
-		r.setXy(new double[width][height]);
+		Puma puma_1 = new Puma();
+		puma_1.setLocation(new double[width][height]);
+		Hare hare_1 = new Hare();
+		hare_1.setLocation(new double[width][height]);
 		
 
-		makeMap mk = new makeMap();
+		MakeMap mk = new MakeMap();
 	
-		map m = new map();
-		m = mk.make(width, height);
+		Map mapInfo = new Map();
+		mapInfo = mk.make(width, height);
 		
-		generateRandomAnimal(width, height, a, r, m);
+		generateRandomAnimal(width, height, puma_1, hare_1, mapInfo);
 		//generateRandomPuma gene_p = null;
 		//generateRandomHare gene_h = null;
 		
@@ -79,8 +79,8 @@ public class main {
 		//r = gene_h.RandomHare(width, height, r, m);
 		
 
-		calculateModel cal = new calculateModel();
-		cal.calModel(width, height, a, r, m);
+		CalculateModel cal = new CalculateModel();
+		cal.CalModel(width, height, puma_1, hare_1, mapInfo);
 
 		System.out.println("finish");
 	}

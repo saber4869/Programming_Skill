@@ -1,6 +1,9 @@
 package com.animal;
-
-public class puma {
+/**********************************************
+* 2017-10-16 FuYu create the class
+*
+***********************************************/
+public class Puma {
 	
 	/**   
 	 * 
@@ -10,33 +13,34 @@ public class puma {
 	 * @author: Fu Yu  
 	 * @date: 16/10/2017
 	 */
-	private double xy[][];
-	int num;
+	private double location[][];
+	int numOfPuma;
 	private double birthRate = 0.02; //b
 	private double diffusionRate = 0.2; //l
 	private double mortalityRate = 0.06; //m
 	
 	
-	public puma(){
+	public Puma(){
 		
 		
 	}
-	public void setnum(int num){
-		this.num = num;
-		
+
+	public double[][] getLocation() {
+		return location;
 	}
-	public double[][] getXy() {
-		return xy;
+
+	public void setLocation(double[][] location) {
+		this.location = location;
 	}
-	public void setXy(double xy[][]) {
-		this.xy = xy;
+
+	public int getNumOfPuma() {
+		return numOfPuma;
 	}
-	public int getNum() {
-		return num;
+
+	public void setNumOfPuma(int numOfPuma) {
+		this.numOfPuma = numOfPuma;
 	}
-	public void setNum(int num) {
-		this.num = num;
-	}
+
 	public double getBirthRate() {
 		return birthRate;
 	}

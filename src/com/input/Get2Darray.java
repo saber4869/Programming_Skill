@@ -1,18 +1,18 @@
 package com.input;
 import java.io.*;
 
-public class get2Darray {
+public class Get2Darray {
 	String fileName;
-	BufferedReader in;
+	BufferedReader bufferIn;
 	
-	public get2Darray(String file) throws FileNotFoundException{
+	public Get2Darray(String file) throws FileNotFoundException{
 		fileName=file;
-		in = new BufferedReader( new FileReader (fileName));
+		bufferIn = new BufferedReader( new FileReader (fileName));
 	}
 	
 	public int[] getdata(String file) throws IOException{
 		//get width and height
-		String line = in.readLine();
+		String line = bufferIn.readLine();
 		String[] a1= line.split(" ");
 		int[] data = new int[2];
 		data[0] = Integer.parseInt(a1[0]); //column
@@ -23,7 +23,7 @@ public class get2Darray {
 	public int[][] getMap(int h,int w) throws IOException{
 		//get Map
 		int height=h,width=w,i,j,count=0;
-		String line= in.readLine();
+		String line= bufferIn.readLine();
 		int[][] map = new int[height][width];
 		int[] array=new int[width];
 		while (line!=null){
@@ -38,12 +38,12 @@ public class get2Darray {
 			}
 			count=count+1;
 			//Read next line
-			line = in.readLine();
+			line = bufferIn.readLine();
 			//Clear the array
 			a2 = null;
 			array=new int[width];
 		}
-		in.close();
+		bufferIn.close();
 		return map;
 	}
 }
