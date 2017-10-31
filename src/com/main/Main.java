@@ -36,6 +36,10 @@ public class Main {
 	  * @author Fu Yu
 	  * @date 2017-10-19
 	  * @what generate the density of puma and hare
+	  * @param: width and height are the two attributes of map
+	  * @param: puma_1 is the initial puma info
+	  * @param: hare_1 is the initial hare info 
+	  * @param: mapInfo is the information of the map we need
 	  * @return void
 	  */
 	public static void generateRandomAnimal(int width,int height, Puma puma_1, Hare hare_1,Map mapInfo){

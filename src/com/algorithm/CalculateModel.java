@@ -21,7 +21,12 @@ public class CalculateModel {
 	 * @author: Fu Yu  
 	 * @throws: IOException 
 	 * @what: get the model 
-	 * @date: 19/10/2017
+	 * @param: width and height are the two attributes of map
+	 * @param: puma_1 is the initial puma info
+	 * @param: hare_1 is the initial hare info 
+	 * @param: mapInfo is the information of the map we need
+	 * @return: void
+	 * @date: 31/10/2017
 	 */
 	
 	

@@ -15,6 +15,9 @@ public class MakeMap {
 	 * 
 	 * @Package: com.algorithm
 	 * @author: Fu Yu  
+	 * @param: width and height are the two attributes of map
+	 * @param: mapInfo is the information of the map we need
+	 * @return: a map with land and water
 	 * @date: 16/10/2017
 	 */
 

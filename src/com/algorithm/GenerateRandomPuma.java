@@ -18,6 +18,10 @@ public class GenerateRandomPuma {
 	 * 
 	 * @Package: com.algorithm
 	 * @author: Fu Yu  
+	 * @param: width and height are the two attributes of map
+	 * @param: hare_1 is the initial puma info 
+	 * @param: mapInfo is the information of the map we need
+	 * @return: a puma with density
 	 * @date: 19/10/2017
 	 */
 	public Puma RandomPuma(int width,int height, Puma puma_1, Map mapInfo){
