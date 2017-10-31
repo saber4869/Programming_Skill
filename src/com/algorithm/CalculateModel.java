@@ -56,41 +56,41 @@ public class CalculateModel {
 							numOfNeighbor = 2; //neighbor equals 2
 							tempPuma = puma_1.getLocation()[i+1][j]+puma_1.getLocation()[i][j+1];
 							tempHare = hare_1.getLocation()[i+1][j]+hare_1.getLocation()[i][j+1];
-							if(puma_1.getLocation()[i+1][j]==0) numOfNeighbor--;  //if the neighbor contains water then minus 1
-							if(puma_1.getLocation()[i][j+1] == 0) numOfNeighbor--;
+							if(mapInfo.getMap()[i+1][j]==0) numOfNeighbor--;  //if the neighbor contains water then minus 1
+							if(mapInfo.getMap()[i][j+1] == 0) numOfNeighbor--;
 						}
 						else if(j+1 > puma_1.getLocation()[i].length-1) //bottom left point 
 						{
 							numOfNeighbor = 2; //neighbor equals 2
 							tempPuma = puma_1.getLocation()[i+1][j]+ puma_1.getLocation()[i][j-1];
 							tempHare = hare_1.getLocation()[i+1][j]+ hare_1.getLocation()[i][j-1];
-							if(puma_1.getLocation()[i+1][j]==0) numOfNeighbor--; //if the neighbor contains water then minus 1
-							if(puma_1.getLocation()[i][j-1] == 0) numOfNeighbor--;
+							if(mapInfo.getMap()[i+1][j]==0) numOfNeighbor--; //if the neighbor contains water then minus 1
+							if(mapInfo.getMap()[i][j-1] == 0) numOfNeighbor--;
 						}
 						else  //other points except the top and bottom ones
 						{
 							numOfNeighbor = 3; 
 							tempPuma = puma_1.getLocation()[i+1][j]+puma_1.getLocation()[i][j+1]+puma_1.getLocation()[i][j-1];
 							tempHare = hare_1.getLocation()[i+1][j]+hare_1.getLocation()[i][j+1]+hare_1.getLocation()[i][j-1];
-							if(puma_1.getLocation()[i+1][j]==0) numOfNeighbor--;
-							if(puma_1.getLocation()[i][j+1] == 0) numOfNeighbor--;
-							if(puma_1.getLocation()[i][j-1] == 0) numOfNeighbor--;
+							if(mapInfo.getMap()[i+1][j]==0) numOfNeighbor--;
+							if(mapInfo.getMap()[i][j+1] == 0) numOfNeighbor--;
+							if(mapInfo.getMap()[i][j-1] == 0) numOfNeighbor--;
 						}                                       
 					}else if(j-1 < 0 && i-1 >= 0 && i+1 <= puma_1.getLocation().length-1 ){ //top row
 						numOfNeighbor = 3;
 						tempPuma = puma_1.getLocation()[i-1][j]+puma_1.getLocation()[i+1][j]+puma_1.getLocation()[i][j+1];
 						tempHare = hare_1.getLocation()[i-1][j]+hare_1.getLocation()[i+1][j]+hare_1.getLocation()[i][j+1];
-						if(puma_1.getLocation()[i-1][j]==0) numOfNeighbor--;
-						if(puma_1.getLocation()[i][j+1] == 0) numOfNeighbor--;
-						if(puma_1.getLocation()[i+1][j] == 0) numOfNeighbor--;
+						if(mapInfo.getMap()[i-1][j]==0) numOfNeighbor--;
+						if(mapInfo.getMap()[i][j+1] == 0) numOfNeighbor--;
+						if(mapInfo.getMap()[i+1][j] == 0) numOfNeighbor--;
 					}else if(i+1 > puma_1.getLocation().length-1){  //right column
 						if(j-1 < 0) //top right point
 						{
 							numOfNeighbor = 2;
 							tempPuma = puma_1.getLocation()[i-1][j]+puma_1.getLocation()[i][j+1];
 							tempHare = hare_1.getLocation()[i-1][j]+hare_1.getLocation()[i][j+1];
-							if(puma_1.getLocation()[i-1][j]==0) numOfNeighbor--;
-							if(puma_1.getLocation()[i][j+1] == 0) numOfNeighbor--;
+							if(mapInfo.getMap()[i-1][j]==0) numOfNeighbor--;
+							if(mapInfo.getMap()[i][j+1] == 0) numOfNeighbor--;
 						}
 						else if(j+1 > puma_1.getLocation()[i].length-1) //bottom right point
 						{
@@ -98,8 +98,8 @@ public class CalculateModel {
 							tempPuma = puma_1.getLocation()[i-1][j]+ puma_1.getLocation()[i][j-1];
 							tempHare = hare_1.getLocation()[i-1][j]+ hare_1.getLocation()[i][j-1];
 							
-							if(puma_1.getLocation()[i-1][j] == 0) numOfNeighbor--;
-							if(puma_1.getLocation()[i][j-1] == 0) numOfNeighbor--;
+							if(mapInfo.getMap()[i-1][j] == 0) numOfNeighbor--;
+							if(mapInfo.getMap()[i][j-1] == 0) numOfNeighbor--;
 						}
 						else //other points except the top and bottom ones
 						{
@@ -107,27 +107,27 @@ public class CalculateModel {
 							tempPuma = puma_1.getLocation()[i-1][j]+puma_1.getLocation()[i][j+1]+puma_1.getLocation()[i][j-1];
 							tempHare = hare_1.getLocation()[i-1][j]+hare_1.getLocation()[i][j+1]+hare_1.getLocation()[i][j-1];
 							
-							if(puma_1.getLocation()[i-1][j]==0) numOfNeighbor--;
-							if(puma_1.getLocation()[i][j+1] == 0) numOfNeighbor--;
-							if(puma_1.getLocation()[i][j-1] == 0) numOfNeighbor--;
+							if(mapInfo.getMap()[i-1][j]==0) numOfNeighbor--;
+							if(mapInfo.getMap()[i][j+1] == 0) numOfNeighbor--;
+							if(mapInfo.getMap()[i][j-1] == 0) numOfNeighbor--;
 						}
 					}else if(j+1 > puma_1.getLocation()[i].length-1 && i-1 >=0 && i+1 <= puma_1.getLocation().length-1){ //bottom row
 						numOfNeighbor = 3;
 						tempPuma = puma_1.getLocation()[i-1][j]+puma_1.getLocation()[i+1][j]+puma_1.getLocation()[i][j-1];
 						tempHare = hare_1.getLocation()[i-1][j]+hare_1.getLocation()[i+1][j]+hare_1.getLocation()[i][j-1];
 						
-						if(puma_1.getLocation()[i-1][j]==0) numOfNeighbor--;
-						if(puma_1.getLocation()[i+1][j] == 0) numOfNeighbor--;
-						if(puma_1.getLocation()[i][j-1] == 0) numOfNeighbor--;
+						if(mapInfo.getMap()[i-1][j]==0) numOfNeighbor--;
+						if(mapInfo.getMap()[i+1][j] == 0) numOfNeighbor--;
+						if(mapInfo.getMap()[i][j-1] == 0) numOfNeighbor--;
 					}else{  //other points inside the map (not on the border)
 						numOfNeighbor = 4;
 						tempPuma = puma_1.getLocation()[i-1][j]+puma_1.getLocation()[i+1][j]+puma_1.getLocation()[i][j-1]+puma_1.getLocation()[i][j+1];
 						tempHare = hare_1.getLocation()[i-1][j]+hare_1.getLocation()[i+1][j]+hare_1.getLocation()[i][j-1]+hare_1.getLocation()[i][j+1];
 						
-						if(puma_1.getLocation()[i-1][j] == 0) numOfNeighbor--;
-						if(puma_1.getLocation()[i+1][j]==0) numOfNeighbor--;
-						if(puma_1.getLocation()[i][j+1] == 0) numOfNeighbor--;
-						if(puma_1.getLocation()[i][j-1] == 0) numOfNeighbor--;
+						if(mapInfo.getMap()[i-1][j] == 0) numOfNeighbor--;
+						if(mapInfo.getMap()[i+1][j]==0) numOfNeighbor--;
+						if(mapInfo.getMap()[i][j+1] == 0) numOfNeighbor--;
+						if(mapInfo.getMap()[i][j-1] == 0) numOfNeighbor--;
 						
 					}
 					tempPuma = tempPuma - numOfNeighbor*puma_1.getLocation()[i][j]; //algorithm calculate for puma

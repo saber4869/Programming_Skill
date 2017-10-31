@@ -18,6 +18,7 @@ import com.algorithm.GenerateRandomPuma;
 import com.algorithm.MakeMap;
 import com.animal.Hare;
 import com.animal.Puma;
+import com.input.Get2Darray;
 import com.map.Map;
 
 
@@ -68,6 +69,9 @@ public class Main {
 		//initialize the puma and hare information
 		int width = 500;
 		int height = 500;
+		
+		
+		
 		ArrayList list = new ArrayList();
 		Puma puma_1 = new Puma();
 		puma_1.setLocation(new double[width][height]);
@@ -78,6 +82,7 @@ public class Main {
 		MakeMap mk = new MakeMap();
 	
 		Map mapInfo = new Map();
+		//mapInfo.setMap(ds);
 		mapInfo = mk.make(width, height);
 		
 		generateRandomAnimal(width, height, puma_1, hare_1, mapInfo);
