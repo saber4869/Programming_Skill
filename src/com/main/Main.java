@@ -1,5 +1,10 @@
 package com.main;
-
+/**********************************************
+* 2017-10-16 FuYu create the class
+*
+* 2017-10-19 FuYu change the main function
+*
+***********************************************/
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -41,22 +46,22 @@ public class Main {
 						hare_1.getLocation()[i][j] = 0;
 					}else{
 					Random random = new Random();
-					int temp_num = random.nextInt(5)+1; //改成小数
+					double temp_num = random.nextDouble()*5; //
 					puma_1.getLocation()[i][j] = temp_num;
 					
 					Random random2 = new Random();
-					int temp_num2 = random2.nextInt(5)+1;
+					double temp_num2 = random2.nextDouble()*5;
 					hare_1.getLocation()[i][j] = temp_num2;
 					}
 					
-					//System.out.println("origin:in("+i+","+j+")puma number:"+a.Location[i][j]+" hare number:"+r.Location[i][j]);	
+					//System.out.println("origin:in("+i+","+j+")puma number:"+puma_1.getLocation()[i][j]+" hare number:"+hare_1.getLocation()[i][j]);	
 			}
 		}
 	}
 	
 	public static void main(String[] args) throws IOException{
 		
-
+		//initialize the puma and hare information
 		int width = 500;
 		int height = 500;
 		ArrayList list = new ArrayList();
@@ -65,7 +70,7 @@ public class Main {
 		Hare hare_1 = new Hare();
 		hare_1.setLocation(new double[width][height]);
 		
-
+		//make the map (temp)
 		MakeMap mk = new MakeMap();
 	
 		Map mapInfo = new Map();
@@ -78,7 +83,7 @@ public class Main {
 		//a = gene_p.RandomPuma(width, height, a, m);
 		//r = gene_h.RandomHare(width, height, r, m);
 		
-
+		//do the algorithm
 		CalculateModel cal = new CalculateModel();
 		cal.CalModel(width, height, puma_1, hare_1, mapInfo);
 

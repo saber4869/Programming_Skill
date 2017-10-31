@@ -23,16 +23,16 @@ public class GenerateRandomHare {
 	public Hare RandomHare(int width,int height, Hare hare_1, Map mapInfo){
 		for(int i=0 ; i<width;i++){
 			for(int j =0; j<height; j++){
-					if(mapInfo.map[i][j]==0){
-						
+					if(mapInfo.map[i][j]==0){ //if the point is water, then make the density 0
+						 
 						hare_1.getLocation()[i][j] = 0;
-					}else{
+					}else{                   // else make the density a random value
 					Random random = new Random();
 					int temp_num = random.nextInt(5)+1;
 					
 					
 					Random random2 = new Random();
-					int temp_num2 = random2.nextInt(5)+1;
+					double temp_num2 = random2.nextDouble()*5;
 					hare_1.getLocation()[i][j] = temp_num2;
 					}
 					
