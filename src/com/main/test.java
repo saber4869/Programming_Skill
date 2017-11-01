@@ -42,9 +42,7 @@ public class test {
 
 	    @Test
 	    public void test_compare() throws IOException {
-	        //Main hello = new Main();
-	        //hello.main(null);
-	    	String fileName="E:/Codes17-18/Java/puma-hare/rsmall.dat"; 
+	    	String fileName=".\\maplist\\3x3.dat"; 
 	        Get2Darray array = new Get2Darray(fileName);
 	    	int[][] matrix = new int[][]{{0,1,0},{1,1,0},{0,1,1}};
 	    	int[] data = array.getHeightandWidth();
