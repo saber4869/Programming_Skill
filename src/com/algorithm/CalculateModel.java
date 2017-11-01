@@ -34,7 +34,7 @@ public class CalculateModel {
 		
 		
 		double timeStep = 0.4;
-		
+		int generation = 0;
 		Puma puma_2 = new Puma();
 		Hare hare_2 = new Hare();
 		puma_2.setLocation(new double[width][height]);
@@ -139,6 +139,7 @@ public class CalculateModel {
 					hare_2.getLocation()[i][j]= hare_1.getLocation()[i][j]+timeStep*(hare_1.getBirthRate()*hare_1.getLocation()[i][j]-hare_1.getPredationRate()*hare_1.getLocation()[i][j]*puma_1.getLocation()[i][j]+hare_1.getDiffusionRate()*tempHare);
 					
 				}
+				
 	
 			}
 	
@@ -152,13 +153,20 @@ public class CalculateModel {
 				
 			}
 			System.out.println("");*/
+			generation++;
+			if(generation == 3){
+				WriteToPPM output = new WriteToPPM(); //get the output
+				output.WritePPM(puma_2.getLocation(),"hare",3);
+				}
+			
 			puma_1 = puma_2 ; //upload the puma density
 			hare_1 = hare_2 ; //upload the hare density
 			t = t+timeStep;	 //time going up
+			
 		}
 		
-		WriteToPPM output = new WriteToPPM(); //get the output
-		output.WritePPM(puma_2.getLocation(),"puma",1);
+		//WriteToPPM output = new WriteToPPM(); //get the output
+		//output.WritePPM(puma_2.getLocation(),"hare",1);
 		
 
 	}
