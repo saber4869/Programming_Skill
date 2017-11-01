@@ -11,6 +11,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+
+
+
 
 import com.algorithm.CalculateModel;
 import com.algorithm.GenerateRandomHare;
@@ -67,12 +71,26 @@ public class Main {
 	public static void main(String[] args) throws IOException{
 		
 		//initialize the puma and hare information
-		int width = 500;
-		int height = 500;
+		Scanner s = new Scanner(System.in); 
+        System.out.println("Please enter the number of landscape you choose£º");
+        System.out.println("1:10*10, 2:50*50");
+        String line = s.nextLine(); 
+        String fileName = null;
+        int input = Integer.parseInt(line);
+        if(input==1){
+        	fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat";
+        	//fileName = ".\\maplist\\10x10.dat";
+        }
+        if(input==2){
+        	fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat";
+        	//fileName = ".\\maplist\\50x50.dat";
+        }
+		Get2Darray landscape=new Get2Darray(fileName);
+		int[] heightandwidth = landscape.getHeightandWidth();
+		int height = heightandwidth[0];
+		int width = heightandwidth[1];
+		int[][] amap = landscape.getMap(height, width);
 		
-		
-		
-		ArrayList list = new ArrayList();
 		Puma puma_1 = new Puma();
 		puma_1.setLocation(new double[width][height]);
 		Hare hare_1 = new Hare();
@@ -80,11 +98,9 @@ public class Main {
 		
 		//make the map (temp)
 		MakeMap mk = new MakeMap();
-	
+
 		Map mapInfo = new Map();
-		//mapInfo.setMap(ds);
-		mapInfo = mk.make(width, height);
-		
+		mapInfo.map = amap;
 		generateRandomAnimal(width, height, puma_1, hare_1, mapInfo);
 		//generateRandomPuma gene_p = null;
 		//generateRandomHare gene_h = null;
@@ -97,13 +113,6 @@ public class Main {
 		cal.CalModel(width, height, puma_1, hare_1, mapInfo);
 
 		System.out.println("finish");
-	}
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
 

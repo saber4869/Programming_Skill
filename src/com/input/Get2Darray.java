@@ -1,18 +1,33 @@
 package com.input;
 import java.io.*;
-
+/**
+ * @author Yixuan Li
+ * @date 2017-Oct-31
+ * @what read from file and get width,height and 2D array data from it.
+ * 
+ */
 public class Get2Darray {
 	String fileName;
-	BufferedReader bufferIn;
+	int height,width;
+	BufferedReader readin;
 	
+	/**
+	  * @what Define the landscape to be read
+	  * @param file: the path of document
+	  */
 	public Get2Darray(String file) throws FileNotFoundException{
-		fileName=file;
-		bufferIn = new BufferedReader( new FileReader (fileName));
+		this.fileName=file;
+		readin = new BufferedReader( new FileReader (fileName));
 	}
 	
-	public int[] getdata(String file) throws IOException{
-		//get width and height
-		String line = bufferIn.readLine();
+	/**
+	  * @what Get height and width of landscape
+	  * @param file: the path of document
+	  * @return 1D array include height and width
+	  */
+	public int[] getHeightandWidth() throws IOException{
+		//read a line
+		String line = readin.readLine();
 		String[] a1= line.split(" ");
 		int[] data = new int[2];
 		data[0] = Integer.parseInt(a1[0]); //column
@@ -20,30 +35,36 @@ public class Get2Darray {
 		return data;
 	}
 	
-	public int[][] getMap(int h,int w) throws IOException{
-		//get Map
-		int height=h,width=w,i,j,count=0;
-		String line= bufferIn.readLine();
+	/**
+	  * @what Get data inside landscape
+	  * @param file: the path of document
+	  * @return Map (2D array) 
+	  */
+	public int[][] getMap(int height,int width) throws IOException{
+		int i,count=0;
+		this.height=height;
+		this.width=width;
+		String line= readin.readLine();
 		int[][] map = new int[height][width];
 		int[] array=new int[width];
-		while (line!=null){
-			String[] a2 = line.split(" ");
-			//String Array to Int Array
-			for(i=0;i<a2.length;i++){  //a2.length should equals to width
-				array[i]=Integer.parseInt(a2[i]);
+		while (line!=null){ //read line by line
+			String[] linedata = line.split(" "); //read one line of data
+			//String array to int Array
+			for(i=0;i<linedata.length;i++){  //a2.length should equals to width
+				array[i]=Integer.parseInt(linedata[i]);
 			}	
-			//Int array to Int 2D Array: height*width
+			//int array to int 2D Array: height*width
 			for(i=0;i<width;i++){
 				map[count][i]=array[i];
 			}
 			count=count+1;
 			//Read next line
-			line = bufferIn.readLine();
+			line = readin.readLine();
 			//Clear the array
-			a2 = null;
+			linedata = null;
 			array=new int[width];
 		}
-		bufferIn.close();
+		readin.close();
 		return map;
 	}
 }
