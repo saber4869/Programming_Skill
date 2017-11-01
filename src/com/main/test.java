@@ -28,5 +28,10 @@ public class test {
 	        Main hello = new Main();
 	        hello.main(null);
 	    }
+	    @Test
+	    public void testAlgorithm() throws IOException {
+	    	 System.out.println("test algorithm start");
+	    	 
+	    }
 
 }

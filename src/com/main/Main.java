@@ -66,6 +66,10 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException{
 		
+		
+		long startTime=System.currentTimeMillis();   //get the start time
+		
+		
 		//initialize the puma and hare information
 		int width = 500;
 		int height = 500;
@@ -95,8 +99,9 @@ public class Main {
 		//do the algorithm
 		CalculateModel cal = new CalculateModel();
 		cal.CalModel(width, height, puma_1, hare_1, mapInfo);
-
-		System.out.println("finish");
+		
+		long endTime=System.currentTimeMillis(); //get the end time 
+		System.out.println("total time: "+(endTime-startTime)+"ms");
 	}
 	
 	

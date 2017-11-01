@@ -40,6 +40,8 @@ public class CalculateModel {
 		puma_2.setLocation(new double[width][height]);
 		hare_2.setLocation(new double[width][height]);
 		
+		//average density
+		//double[][] aver_hare = new double[width][height];
 		for(double t = 0; t < 50; ){
 			for(int i = 0; i < width; i++){
 				
@@ -156,11 +158,10 @@ public class CalculateModel {
 		}
 		
 		WriteToPPM output = new WriteToPPM(); //get the output
-		output.WritePPM(puma_2.getLocation());
+		output.WritePPM(puma_2.getLocation(),"puma",1);
 		
 
 	}
-	
 	
 	
 	
