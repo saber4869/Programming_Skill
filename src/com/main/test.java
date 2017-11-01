@@ -16,12 +16,12 @@ import com.input.Get2Darray;
 
 public class test {
 
-	  @Before//璇存槑鍦ㄦ祴璇曞嚱鏁版墽琛屼箣鍓嶄細棣栧厛鎵ц杩欎釜鍑芥暟 @Before绗﹀彿蹇呴』鍐�
+	  @Before
 	    public void start() {
 	        System.out.println("Code Start!");
 	    }
 
-	    @After//璇存槑鍦ㄦ祴璇曞嚱鏁版墽琛屼箣鍚庝細鎺ョ潃鎵ц杩欎釜鍑芥暟  @After绗﹀彿蹇呴』鍐�
+	    @After
 	    public void end() {
 	        System.out.println("Code End!");
 	    }
