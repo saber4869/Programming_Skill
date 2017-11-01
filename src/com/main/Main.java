@@ -120,13 +120,5 @@ public class Main {
 		long endTime=System.currentTimeMillis(); //get the end time 
 		System.out.println("total time: "+(endTime-startTime)+"ms");
 	}
-	
-	
-	
-	
-	
-	
-	
->>>>>>> fc3dd6e7b5d91bdfdd39dfaafbf31ea1b173c427
 }
 
