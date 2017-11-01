@@ -132,7 +132,7 @@ public class WriteToPPM {
 				}
 		}
 	    //specify filename by animal and cycle
-		String filename = ".\\maplist\\" + animal + "output" + T + ".ppm";
+		String filename = "./outputlist/" + animal + "output" + T + ".ppm";
 		//write  RGB color into PPM file
 		BufferedWriter writeppm = new BufferedWriter(new FileWriter(filename));
 		writeppm.write("P3");
