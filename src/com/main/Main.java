@@ -82,8 +82,8 @@ public class Main {
         String fileName = null;
         int input = Integer.parseInt(line);
         if(input==1){
-        	//fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat";
-        	fileName = ".\\maplist\\10x10.dat";
+        	fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat"; //3*3
+        	//fileName = ".\\maplist\\10x10.dat";
         }
         if(input==2){
         	//fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat";
