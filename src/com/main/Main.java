@@ -75,7 +75,7 @@ public class Main {
 		
 		
 		//initialize the puma and hare information
-        String fileName = ".\\maplist\\2000x2000.dat";
+        String fileName = "./maplist/2000x2000.dat";
 		Get2Darray landscape = new Get2Darray(fileName);
 		int[] heightandwidth = landscape.getHeightandWidth();
 		int height = heightandwidth[0];
