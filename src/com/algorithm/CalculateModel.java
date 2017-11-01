@@ -165,8 +165,8 @@ public class CalculateModel {
 			
 		}
 		
-		//WriteToPPM output = new WriteToPPM(); //get the output
-		//output.WritePPM(puma_2.getLocation(),"hare",1);
+		WriteToPPM output = new WriteToPPM(); //get the output
+		output.WritePPM(puma_2.getLocation(),"hare",1250);
 		
 
 	}
