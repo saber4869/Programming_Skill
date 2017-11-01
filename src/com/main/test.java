@@ -8,8 +8,11 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.input.Get2Darray;
 
 public class test {
 
@@ -23,16 +26,6 @@ public class test {
 	        System.out.println("Code End!");
 	    }
 
-	    @Test
-	    public void testAdd() throws IOException {
-	        String str = "abc";
-	        System.out.println(str);
-	        Main hello = new Main();
-	        hello.main(null);
-	        
-	    }
-
-	    
 	    //Test the user input is an integer
 	    @Test
 	    public void test_scan() throws Exception {
@@ -43,10 +36,22 @@ public class test {
 	        int input = Integer.parseInt(keyboard.nextLine());
 	        if(input < 1 || input > 10) {
 	            System.out.println("Wrong number.");
-	        }
-	      
-	        
+	        }   
 	    }
+	    
+
+	    @Test
+	    public void test_compare() throws IOException {
+	        //Main hello = new Main();
+	        //hello.main(null);
+	    	String fileName="E:/Codes17-18/Java/puma-hare/rsmall.dat"; 
+	        Get2Darray array = new Get2Darray(fileName);
+	    	int[][] matrix = new int[][]{{0,1,0},{1,1,0},{0,1,1}};
+	    	int[] data = array.getHeightandWidth();
+	    	Assert.assertArrayEquals(matrix,array.getMap(data[0],data[1]));
+	    }
+
+	    
 
 
 	    @Test
