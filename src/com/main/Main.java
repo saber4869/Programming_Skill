@@ -75,21 +75,8 @@ public class Main {
 		
 		
 		//initialize the puma and hare information
-		Scanner s = new Scanner(System.in); 
-        System.out.println("Please enter the number of landscape you choose£º");
-        System.out.println("1:10*10, 2:50*50");
-        String line = s.nextLine(); 
-        String fileName = null;
-        int input = Integer.parseInt(line);
-        if(input==1){
-        	fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat"; //3*3
-        	//fileName = ".\\maplist\\10x10.dat";
-        }
-        if(input==2){
-        	//fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat";
-        	fileName = ".\\maplist\\50x50.dat";
-        }
-		Get2Darray landscape=new Get2Darray(fileName);
+        String fileName = ".\\maplist\\2000x2000.dat";
+		Get2Darray landscape = new Get2Darray(fileName);
 		int[] heightandwidth = landscape.getHeightandWidth();
 		int height = heightandwidth[0];
 		int width = heightandwidth[1];
