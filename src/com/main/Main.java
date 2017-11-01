@@ -70,6 +70,10 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException{
 		
+		
+		long startTime=System.currentTimeMillis();   //get the start time
+		
+		
 		//initialize the puma and hare information
 		Scanner s = new Scanner(System.in); 
         System.out.println("Please enter the number of landscape you choose£º");
@@ -78,12 +82,12 @@ public class Main {
         String fileName = null;
         int input = Integer.parseInt(line);
         if(input==1){
-        	fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat";
-        	//fileName = ".\\maplist\\10x10.dat";
+        	//fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat";
+        	fileName = ".\\maplist\\10x10.dat";
         }
         if(input==2){
-        	fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat";
-        	//fileName = ".\\maplist\\50x50.dat";
+        	//fileName = "E:/Codes17-18/Java/puma-hare/rsmall.dat";
+        	fileName = ".\\maplist\\50x50.dat";
         }
 		Get2Darray landscape=new Get2Darray(fileName);
 		int[] heightandwidth = landscape.getHeightandWidth();
@@ -112,7 +116,17 @@ public class Main {
 		CalculateModel cal = new CalculateModel();
 		cal.CalModel(width, height, puma_1, hare_1, mapInfo);
 
-		System.out.println("finish");
-	}	
+		
+		long endTime=System.currentTimeMillis(); //get the end time 
+		System.out.println("total time: "+(endTime-startTime)+"ms");
+	}
+	
+	
+	
+	
+	
+	
+	
+>>>>>>> fc3dd6e7b5d91bdfdd39dfaafbf31ea1b173c427
 }
 

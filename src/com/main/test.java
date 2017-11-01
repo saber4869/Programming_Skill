@@ -31,6 +31,7 @@ public class test {
 	        hello.main(null);
 	        
 	    }
+
 	    
 	    //Test the user input is an integer
 	    @Test
@@ -45,6 +46,13 @@ public class test {
 	        }
 	      
 	        
+	    }
+
+
+	    @Test
+	    public void testAlgorithm() throws IOException {
+	    	 System.out.println("test algorithm start");
+	    	 
 	    }
 
 
