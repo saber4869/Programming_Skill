@@ -43,9 +43,19 @@ public class test {
 
 	    @Test //Test the data in the file has been read as its original
 	    public void test_compare() throws IOException {
-	    	String fileName=".\\maplist\\3x3.dat"; 
+	    	String fileName=".\\maplist\\10x10.dat"; 
 	        Get2Darray array = new Get2Darray(fileName);
-	    	int[][] matrix = new int[][]{{0,1,0},{1,1,0},{0,1,1}};
+	    	int[][] matrix = new int[][]{
+	    			{0,1,1,1,1,1,1,1,1,1}, 
+	    			{1,1,1,1,1,1,1,1,1,1},
+	    			{1,1,1,1,1,1,1,1,1,1}, 
+	    			{1,1,1,1,1,1,1,1,1,1}, 
+	    			{1,0,0,0,0,0,0,1,1,1}, 
+	    			{1,0,0,0,0,0,0,0,1,1}, 
+	    			{1,0,0,0,0,0,0,0,1,1}, 
+	    			{1,1,1,1,1,1,1,1,1,1},
+	    			{1,1,1,1,1,1,1,1,1,1}, 
+	    			{1,1,1,1,1,1,1,1,1,1}};
 	    	int[] data = array.getHeightandWidth();
 	    	Assert.assertArrayEquals(matrix,array.getMap(data[0],data[1]));
 	    }
