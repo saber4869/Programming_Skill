@@ -44,8 +44,8 @@ public class TestProject {
 
 	    @Test //Test the data in the file has been read as its original
 	    public void test_compare() throws IOException {
-
-	    	String fileName="./maplist/10x10.dat"; 
+	    	//String fileName="./maplist/10x10.dat"; //file path on the local
+	    	String fileName="maplist/10x10.dat"; //file path on the cp-lab
 
 	        Get2Darray array = new Get2Darray(fileName);
 	    	int[][] matrix = new int[][]{

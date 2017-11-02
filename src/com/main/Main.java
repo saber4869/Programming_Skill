@@ -81,12 +81,9 @@ public class Main {
 		
 		
 		//initialize the puma and hare information
-        String fileName = "./maplist/10x10.dat";
-        //File initialFile = new File(fileName);
-	    //InputStream targetStream = new FileInputStream(initialFile);
-	    
+        //String fileName = "./maplist/10x10.dat"; //file path on local
+		String fileName = "maplist/10x10.dat"; //file path on the cp-lab
 		Get2Darray landscape = new Get2Darray(fileName);
-	    //Get2Darray landscape = new Get2Darray(targetStream);
 	    int[] heightandwidth = landscape.getHeightandWidth();
 		int height = heightandwidth[0];
 		int width = heightandwidth[1];
