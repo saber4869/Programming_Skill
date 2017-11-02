@@ -73,7 +73,7 @@ public class Main {
 			}
 		}
 	}
-	
+	public static int flag = 0;
 	public static void main(String[] args) throws IOException{
 		
 		
@@ -98,16 +98,17 @@ public class Main {
 		hare_1.setLocation(new double[width][height]);
 		
 		//make the map (temp)
-		MakeMap mk = new MakeMap();
+		//MakeMap mk = new MakeMap();
 
 		Map mapInfo = new Map();
 		mapInfo.map = amap;
-		generateRandomAnimal(width, height, puma_1, hare_1, mapInfo);
-		//generateRandomPuma gene_p = null;
-		//generateRandomHare gene_h = null;
+		//generateRandomAnimal(width, height, puma_1, hare_1, mapInfo);
 		
-		//a = gene_p.RandomPuma(width, height, a, m);
-		//r = gene_h.RandomHare(width, height, r, m);
+		GenerateRandomPuma gene_p = new GenerateRandomPuma();
+		GenerateRandomHare gene_h = new GenerateRandomHare();
+		
+		puma_1.setLocation(gene_p.RandomPuma(width, height, puma_1, mapInfo));
+		hare_1.setLocation(gene_h.RandomHare(width, height, hare_1, mapInfo));
 		
 		//do the algorithm
 		CalculateModel cal = new CalculateModel();
@@ -116,6 +117,15 @@ public class Main {
 		
 		long endTime=System.currentTimeMillis(); //get the end time 
 		System.out.println("total time: "+(endTime-startTime)+"ms");
+		flag = 1;
 	}
+	public static int getFlag() {
+		return flag;
+	}
+	public static void setFlag(int flag) {
+		Main.flag = flag;
+	}
+	
+	
 }
 
