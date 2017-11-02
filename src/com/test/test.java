@@ -12,7 +12,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.algorithm.CalculateModel;
 import com.input.Get2Darray;
+import com.main.Main;
 
 public class test {
 
@@ -55,7 +57,13 @@ public class test {
 	    @Test
 	    public void testAlgorithm() throws IOException {
 	    	 System.out.println("test algorithm start");
-	    	 
+	    	 CalculateModel cal = new CalculateModel();
+	    }
+	    @Test
+	    public void testRandomGenerate() throws IOException {
+	    	 System.out.println("test random generate animal start");
+	    	 Main main = new Main();
+	    	
 	    }
 	    @Test
 	    public void testoutput() throws IOException {
