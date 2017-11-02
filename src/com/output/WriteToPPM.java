@@ -16,7 +16,6 @@ import java.awt.Color;
  * Every element in the result array is specified to a color
  * making a colorful map to indicate the density of hare and puma.
  * @author Guo Zheng
- * @version 3.0
  */	
 public class WriteToPPM {
 	
@@ -41,7 +40,7 @@ public class WriteToPPM {
 		this.height = resultArray[0].length;
 		this.pixelColor = new Color[height][width];
 		
-		//set six pink colors for hare
+		//set pink colors for hare
 		Color white = Color.WHITE;		
 		Color pink1 = new Color(255,217,236);	
 		Color pink2 = new Color(255,149,202);
@@ -55,7 +54,7 @@ public class WriteToPPM {
 		Color pink10 = new Color(159,0,80);
 		Color pink11 = new Color(96,0,48);
 		
-		//set six blue colors for puma
+		//set blue colors for puma
 		Color blue1 = new Color(196,225,255);
 		Color blue2 = new Color(151,203,255);
 		Color blue3 = new Color(132,193,255);
