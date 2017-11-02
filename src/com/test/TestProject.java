@@ -1,10 +1,6 @@
 package com.test;
 
-import static org.junit.Assert.*;
-
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Scanner;
 
 import org.junit.After;
@@ -12,14 +8,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-
-
-
-import com.algorithm.CalculateModel;
 import com.input.Get2Darray;
 import com.main.Main;
-
-public class test {
+import com.algorithm.CalculateModel;
+public class TestProject {
 
 	  @Before
 	    public void start() {
@@ -69,8 +61,7 @@ public class test {
 	    @Test
 	    public void testAlgorithm() throws IOException {
 	    	 System.out.println("test algorithm start");
-	    	 CalculateModel cal = new CalculateModel();
-	    	 
+	    	 CalculateModel model = new CalculateModel();
 	    }
 	    @Test
 	    public void testRandomGenerate() throws IOException {

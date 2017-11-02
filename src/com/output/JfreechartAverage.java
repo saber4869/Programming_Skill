@@ -28,7 +28,7 @@ public class JfreechartAverage {
         // 步骤2：根据Dataset 生成JFreeChart对象，以及做相应的设置  
         JFreeChart freeChart = createChart(dataset);  
         // 步骤3：将JFreeChart对象输出到文件，Servlet输出流等  
-        saveAsFile(freeChart, "./outputlist/avg.jpg", 2000, 2000);  
+        saveAsFile(freeChart, "D:\\avg.jpg", 2000, 2000);  
     }  
   
     // 保存为文件  

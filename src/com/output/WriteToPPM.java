@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import javax.swing.Spring;
 
+import com.algorithm.CalculateModel;
+
 import java.awt.Color;
 
 /**
@@ -22,6 +24,7 @@ public class WriteToPPM {
 	private int width;//get from resultArray width
 	private int height;//get from resultArray height
 	private Color[][] pixelColor; //create color array to store RGB value
+	
 	
 	
 	/**
