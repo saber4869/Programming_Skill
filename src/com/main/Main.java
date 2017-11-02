@@ -6,12 +6,18 @@ package com.main;
 *
 ***********************************************/
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+
+
 
 
 
@@ -75,11 +81,13 @@ public class Main {
 		
 		
 		//initialize the puma and hare information
-
         String fileName = "./maplist/10x10.dat";
-
+        //File initialFile = new File(fileName);
+	    //InputStream targetStream = new FileInputStream(initialFile);
+	    
 		Get2Darray landscape = new Get2Darray(fileName);
-		int[] heightandwidth = landscape.getHeightandWidth();
+	    //Get2Darray landscape = new Get2Darray(targetStream);
+	    int[] heightandwidth = landscape.getHeightandWidth();
 		int height = heightandwidth[0];
 		int width = heightandwidth[1];
 		int[][] amap = landscape.getMap(height, width);
