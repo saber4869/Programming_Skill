@@ -1,5 +1,7 @@
 package com.input;
 import java.io.*;
+
+import com.main.Main;
 /**
  * @author Yixuan Li
  * @date 2017-Oct-31
@@ -10,14 +12,28 @@ public class Get2Darray {
 	String fileName;
 	int height,width;
 	BufferedReader readin;
+	//--add new--
+	InputStream targetStream;
 	
 	/**
 	  * @what Define the landscape to be read
 	  * @param file: the path of document
+	 * @throws UnsupportedEncodingException 
 	  */
-	public Get2Darray(String file) throws FileNotFoundException{
+	public Get2Darray(String file) throws FileNotFoundException, UnsupportedEncodingException{
+	//public Get2Darray(InputStream targetStream) throws FileNotFoundException, UnsupportedEncodingException{
+		System.out.println("file: "+file);
 		this.fileName=file;
-		readin = new BufferedReader( new FileReader (fileName));
+		//--test--
+		//InputStream is = ClassLoader.getSystemResourceAsStream("/maplist/10x10.dat");
+		//InputStream is = Thread.currentThread().getContextClassLoader().getResource("./maplist/10x10.dat");
+		//System.out.println("is: "+is);
+		//readin = new BufferedReader(new InputStreamReader(is));
+		//this.targetStream=targetStream;
+	    //System.out.println("targetStream: "+targetStream);
+	    //readin = new BufferedReader(new InputStreamReader(targetStream, "UTF-8"));
+		//--old--
+        readin = new BufferedReader( new FileReader (fileName));
 	}
 	
 	/**
