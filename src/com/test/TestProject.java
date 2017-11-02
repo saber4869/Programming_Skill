@@ -1,6 +1,7 @@
 package com.test;
 
 import java.io.BufferedReader;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -16,9 +17,19 @@ import com.output.WriteToPPM;
 //import com.output.WriteToPPM;
 import com.output.WriteToText;
 import com.algorithm.CalculateModel;
+
+/**   
+ * 
+ * 
+ * 
+ * @Package: com.test
+ * @author: Fu Yu & Zheng Guo & Yixuan Li 
+ * @date: 02/11/2017
+ * @what: Junit tests
+ */
 public class TestProject {
 
-	  @Before
+	    @Before
 	    public void start() {
 	        System.out.println("Code Start!");
 	    }
@@ -42,10 +53,10 @@ public class TestProject {
 	    }
 	    
 
-	    @Test //Test the data in the file has been read as its original
+	    @Test //Test the data in the file has been read as its original content
 	    public void test_compare() throws IOException {
-	    	//String fileName="./maplist/10x10.dat"; //file path on the local
-	    	String fileName="maplist/10x10.dat"; //file path on the cp-lab
+	    	String fileName="./maplist/10x10.dat"; //file path on the local
+	    	//String fileName="maplist/10x10.dat"; //file path on the cp-lab
 
 	        Get2Darray array = new Get2Darray(fileName);
 	    	int[][] matrix = new int[][]{
@@ -135,7 +146,7 @@ public class TestProject {
 	    	Assert.assertArrayEquals(matrix,text);
 	    }
 	    
-	    @Test
+	    @Test //Test the output
 	    public void testOutputPPM() throws IOException {
 	     	
 	    	int[][] text = new int[3][9];
@@ -146,11 +157,11 @@ public class TestProject {
 	    				{255,255,255,255,255,255,255,255,255},
     					{255,255,255,255,255,255,255,255,255,}
 	    			};
-	    		WriteToPPM output = new WriteToPPM();
+	    	WriteToPPM output = new WriteToPPM();
 	     	output.WritePPM(matrixInit,"testPPM",0);
 	     	
-	    		BufferedReader readin; 	
-		    	String fileName="./outputlist/testPPMoutput0.PPM"; 
+	    	BufferedReader readin; 	
+		    String fileName="./outputlist/testPPMoutput0.PPM"; 
 			readin = new BufferedReader( new FileReader (fileName));
 	      
 			String line = readin.readLine();
@@ -166,7 +177,7 @@ public class TestProject {
 				
 				int[] temparray = new int[9];
 				
-				for(int i=0;i<linedata.length;i++){  //a2.length should equals to width
+				for(int i=0;i<linedata.length;i++){  //linedata.length should equals to width
 					temparray[i] =Integer.parseInt(linedata[i]);
 				}	
 				
