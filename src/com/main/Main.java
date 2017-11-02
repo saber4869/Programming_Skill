@@ -40,7 +40,7 @@ public class Main {
 	/**
 	  * @author Fu Yu
 	  * @date 2017-10-19
-	  * @what generate the density of puma and hare
+	  * @what generate the random density of puma and hare
 	  * @param: width and height are the two attributes of map
 	  * @param: puma_1 is the initial puma info
 	  * @param: hare_1 is the initial hare info 
