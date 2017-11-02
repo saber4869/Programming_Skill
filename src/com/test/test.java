@@ -28,21 +28,20 @@ public class test {
 	        System.out.println("Code End!");
 	    }
 
-	    //Test the user input is an integer
-	    @Test
+	    
+	    @Test //Test the user input is an integer
 	    public void test_scan() throws Exception {
-	    	//Main hello = new Main();
-	    	//hello.main(null);
 	    	Scanner keyboard = new Scanner(System.in);
 	        System.out.println("Give a number between 1 and 10");
 	        int input = Integer.parseInt(keyboard.nextLine());
 	        if(input < 1 || input > 10) {
+	        	//if the user input is a String or not a integer between 1 and 10
 	            System.out.println("Wrong number.");
 	        }   
 	    }
 	    
 
-	    @Test
+	    @Test //Test the data in the file has been read as its original
 	    public void test_compare() throws IOException {
 	    	String fileName=".\\maplist\\3x3.dat"; 
 	        Get2Darray array = new Get2Darray(fileName);
