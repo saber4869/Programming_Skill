@@ -12,6 +12,7 @@ import com.animal.Puma;
 import com.map.Map;
 import com.output.JfreechartAverage;
 import com.output.WriteToPPM;
+import com.output.WriteToText;
 
 public class CalculateModel {
 	/**   
@@ -156,6 +157,8 @@ public class CalculateModel {
 		//print part
 			
 			if(generation%100 == 0 || generation == 1249){
+				
+				// calculate average
 				for(int i =0; i <width; i++){
 					for(int j =0; j< height; j++){
 						total_temp_puma += puma_2.getLocation()[i][j];
@@ -167,16 +170,23 @@ public class CalculateModel {
 				}
 				avg_puma[count] = total_temp_puma / (width*height);
 				avg_hare[count] = total_temp_hare / (width*height);
+				total_temp_puma = 0;
+				total_temp_hare = 0;
+				//save as a file
+				WriteToText file = new WriteToText();
+				file.WriteText(puma_2.getLocation(), Double.toString(avg_puma[count]), "puma", generation);
+				file.WriteText(hare_2.getLocation(), Double.toString(avg_hare[count]), "hare", generation);
 				
+				
+				//draw ppm
+				WriteToPPM output = new WriteToPPM(); //get the output
+				output.WritePPM(puma_2.getLocation(),"puma",generation);
+				output.WritePPM(hare_2.getLocation(),"hare",generation);
 				System.out.println(generation+" "+count+" "+avg_puma[count]+" "+avg_hare[count]+"");
 				count ++;
+				
 			}
 			//System.out.println("");
-			
-			if(generation == 3){
-				WriteToPPM output = new WriteToPPM(); //get the output
-				output.WritePPM(puma_2.getLocation(),"hare",3);
-				}
 			
 			puma_1 = puma_2 ; //upload the puma density
 			hare_1 = hare_2 ; //upload the hare density

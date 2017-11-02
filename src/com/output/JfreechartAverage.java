@@ -99,10 +99,8 @@ public class JfreechartAverage {
         String[] colKeys = {"0", "100", "200", "300", "400", "500",  
                 "600", "700", "800", "900", "1000", "1100", "1200",  
                 "1250"};  
-        double[][] data = {{puma[0],puma[1],puma[2],puma[3],puma[4],puma[5],
-        	puma[6],puma[7],puma[8],puma[9],puma[10],puma[11],puma[12],puma[13]},
-        	{hare[0],hare[1],hare[2],hare[3],hare[4],hare[5],hare[6],hare[7],hare[8],
-        		hare[9],hare[10],hare[11],hare[12],hare[13]}};  
+        double[][] data = {puma,
+        	hare};  
         // 或者使用类似以下代码  
         // DefaultCategoryDataset categoryDataset = new  
         // DefaultCategoryDataset();  
