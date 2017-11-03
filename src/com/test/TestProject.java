@@ -155,6 +155,7 @@ public class TestProject {
 	    	 
 	    	 System.out.println("random generate values are legal");
 	    }
+	    
 	    @Test
 	    public void testAlgorithm() throws IOException {
 	    	 System.out.println("test algorithm start");
@@ -192,46 +193,45 @@ public class TestProject {
 		    		{3.618134239282334, 1.9636886161927303, 2.8487214196712736, 0.8479721314091924, 4.177713926663713, 3.614193922229804, 4.235971164045301, 3.2806737764527547, 1.924533848929939, 2.8331685183322524},
 		    		{3.754734124847755, 2.100010345308968, 3.188809409044615, 2.2523295321159496, 2.592871157322445, 3.3242531236536017, 2.100082543761745, 1.0064288693746333, 0.9029567316095846, 1.4622318735351385},
 		    		{3.3546617745074903, 4.152696515716726, 2.2317718462751173, 1.2834822858659871, 2.17961176678734, 3.2578249861723485, 2.841381233360676, 1.4288511341156502, 2.686056060023006, 1.8551666536246358},
-		    };
-	     	WriteToText output = new WriteToText();
-	     	output.WriteText(matrix,"1.9082987060593666","testText",0);
-	     	
-	    		BufferedReader readin; 	
-		    	String fileName="./outputlist/testTextresult0.txt"; 
-			readin = new BufferedReader( new FileReader (fileName));
-	        
-			String line= readin.readLine();
-			String[] a1= line.split(" ");
-	
-			Assert.assertEquals("1.9082987060593666",a1[0]);//
-			
-			line= readin.readLine();
-		
-			while (line!=null){ //read line by line
-				String[] linedata = line.split(" "); //read one line of data
-				
-				double[] temparray = new double[10];
-				
-				for(int i=0;i<linedata.length;i++){  //a2.length should equals to width
-					temparray[i] = Double.parseDouble(linedata[i]);
-				}	
-				
-				for(int i = 0;i<10; i++){
-					text[count][i]=temparray[i]; 
+	    	};
+     	WriteToText output = new WriteToText();
+     	output.WriteText(matrix,"1.9082987060593666","testText",0);
+     	
+    		BufferedReader readin; 	
+	    	String fileName="./outputlist/testTextresult0.txt"; 
+		readin = new BufferedReader( new FileReader (fileName));
+        
+		String line= readin.readLine();
+		String[] a1= line.split(" ");
 
-				}
-				count++;
-				
-				//Read next line
-				line = readin.readLine();
-				//Clear the array
-				linedata = null;
-				temparray=new double[10];
-			}
-			readin.close();
+		Assert.assertEquals("1.9082987060593666",a1[0]);//
+		
+		line= readin.readLine();
 	
+		while (line!=null){ //read line by line
+			String[] linedata = line.split(" "); //read one line of data
+			
+			double[] temparray = new double[10];
+			
+			for(int i=0;i<linedata.length;i++){  //a2.length should equals to width
+				temparray[i] = Double.parseDouble(linedata[i]);
+			}	
+			
+			for(int i = 0;i<10; i++){
+				text[count][i]=temparray[i]; 
+			}
+			count++;
+			//Read next line
+			line = readin.readLine();
+			//Clear the array
+			linedata = null;
+			temparray=new double[10];
+		}
+		readin.close();
+
 	    	Assert.assertArrayEquals(matrix,text);
 	    }
+	    
 	    
 	    @Test
 	    public void testOutputPPM() throws IOException {
@@ -244,43 +244,42 @@ public class TestProject {
 	    				{255,255,255,255,255,255,255,255,255},
     					{255,255,255,255,255,255,255,255,255,}
 	    			};
-	    		WriteToPPM output = new WriteToPPM();
-	     	output.WritePPM(matrixInit,"testPPM",0);
-	     	
-	    		BufferedReader readin; 	
-		    	String fileName="./outputlist/testPPMoutput0.PPM"; 
-			readin = new BufferedReader( new FileReader (fileName));
-	      
-			String line = readin.readLine();
-			
-			
-			for(int i =0;i<3;i++) {
-				line = readin.readLine();
-				}
-					
+    		WriteToPPM output = new WriteToPPM();
+     	output.WritePPM(matrixInit,"testPPM",0);
+     	
+    		BufferedReader readin; 	
+	    	String fileName="./outputlist/testPPMoutput0.PPM"; 
+		readin = new BufferedReader( new FileReader (fileName));
+      
+		String line = readin.readLine();
 		
-			while (line!=null){ //read line by line
-				String[] linedata = line.split(" "); //read one line of data
-				
-				int[] temparray = new int[9];
-				
-				for(int i=0;i<linedata.length;i++){  //a2.length should equals to width
-					temparray[i] =Integer.parseInt(linedata[i]);
-				}	
-				
-				for(int i = 0;i<9; i++){
-					text[count][i]=temparray[i]; 
-
-				}
-				count++;
-				
-				//Read next line
-				line = readin.readLine();
-				//Clear the array
-				linedata = null;
-				temparray=new int[9];
+		
+		for(int i =0;i<3;i++) {
+			line = readin.readLine();
 			}
-			readin.close();
+				
+	
+		while (line!=null){ //read line by line
+			String[] linedata = line.split(" "); //read one line of data
+			
+			int[] temparray = new int[9];
+			
+			for(int i=0;i<linedata.length;i++){  //a2.length should equals to width
+				temparray[i] =Integer.parseInt(linedata[i]);
+			}	
+			
+			for(int i = 0;i<9; i++){
+				text[count][i]=temparray[i]; 
+			}
+			count++;
+			
+			//Read next line
+			line = readin.readLine();
+			//Clear the array
+			linedata = null;
+			temparray=new int[9];
+		}
+		readin.close();
 
 	    	Assert.assertArrayEquals(matrixTest,text);
 	    }
