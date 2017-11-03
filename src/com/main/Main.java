@@ -12,15 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
-
-
-
-
-
 
 import com.algorithm.CalculateModel;
 import com.algorithm.GenerateRandomHare;
@@ -36,16 +29,17 @@ import com.map.Map;
  * 
  * 
  * 
- * @Package: com.action
+ * @Package: com.main
  * @author: Fu Yu  
  * @date: 16/10/2017
+ * @what: Main function
  */
 
 public class Main {
 
 	/**
 	  * @author Fu Yu
-	  * @date 2017-10-19
+	  * @date 2017-Oct-19
 	  * @what generate the random density of puma and hare
 	  * @param: width and height are the two attributes of map
 	  * @param: puma_1 is the initial puma info
@@ -73,7 +67,13 @@ public class Main {
 			}
 		}
 	}
-	public static int flag = 0;
+	
+	/**
+	  * @author Fu Yu & Yixuan Li
+	  * @date 2017-Nov-01
+	  * @what Main function, begin with reading input file,then run the algorithm,and last get output.
+	  * @return void
+	  */
 	public static void main(String[] args) throws IOException{
 		
 		
@@ -95,17 +95,16 @@ public class Main {
 		hare_1.setLocation(new double[width][height]);
 		
 		//make the map (temp)
-		//MakeMap mk = new MakeMap();
+		MakeMap mk = new MakeMap();
 
 		Map mapInfo = new Map();
 		mapInfo.map = amap;
-		//generateRandomAnimal(width, height, puma_1, hare_1, mapInfo);
+		generateRandomAnimal(width, height, puma_1, hare_1, mapInfo);
+		//generateRandomPuma gene_p = null;
+		//generateRandomHare gene_h = null;
 		
-		GenerateRandomPuma gene_p = new GenerateRandomPuma();
-		GenerateRandomHare gene_h = new GenerateRandomHare();
-		
-		puma_1.setLocation(gene_p.RandomPuma(width, height, puma_1, mapInfo));
-		hare_1.setLocation(gene_h.RandomHare(width, height, hare_1, mapInfo));
+		//a = gene_p.RandomPuma(width, height, a, m);
+		//r = gene_h.RandomHare(width, height, r, m);
 		
 		//do the algorithm
 		CalculateModel cal = new CalculateModel();
@@ -114,11 +113,16 @@ public class Main {
 		
 		long endTime=System.currentTimeMillis(); //get the end time 
 		System.out.println("total time: "+(endTime-startTime)+"ms");
-		flag = 1;
+		
+		flag=1;
 	}
+	
+	public static int flag = 0;
+
 	public static int getFlag() {
 		return flag;
 	}
+
 	public static void setFlag(int flag) {
 		Main.flag = flag;
 	}

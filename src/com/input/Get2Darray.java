@@ -1,11 +1,9 @@
 package com.input;
 import java.io.*;
-
-import com.main.Main;
 /**
- * @author Yixuan Li
- * @date 2017-Oct-31
- * @what read from file and get width,height and 2D array data from it.
+ * @author: Yixuan Li
+ * @date: 2017-Oct-31
+ * @what: read from the file to get width,height and 2D array data.
  * 
  */
 public class Get2Darray {
@@ -55,7 +53,7 @@ public class Get2Darray {
 		while (line!=null){ //read line by line
 			String[] linedata = line.split(" "); //read one line of data
 			//String array to int Array
-			for(i=0;i<linedata.length;i++){  //a2.length should equals to width
+			for(i=0;i<linedata.length;i++){  //linedata.length should equals to width
 				array[i]=Integer.parseInt(linedata[i]);
 			}	
 			//int array to int 2D Array: height*width

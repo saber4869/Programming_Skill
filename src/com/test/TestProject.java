@@ -23,7 +23,6 @@ import com.input.Get2Darray;
 import com.main.Main;
 import com.map.Map;
 import com.output.WriteToPPM;
-//import com.output.WriteToPPM;
 import com.output.WriteToText;
 import com.algorithm.CalculateModel;
 import com.algorithm.GenerateRandomHare;
