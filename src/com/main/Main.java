@@ -82,7 +82,7 @@ public class Main {
 		
 		//initialize the puma and hare information
         //String fileName = "./maplist/10x10.dat"; //file path on local
-		String fileName = "maplist/2000x2000.dat"; //file path on the cp-lab
+		String fileName = "maplist/10x10.dat"; //file path on the cp-lab
 		Get2Darray landscape = new Get2Darray(fileName);
 	    int[] heightandwidth = landscape.getHeightandWidth();
 		int height = heightandwidth[0];
@@ -95,16 +95,16 @@ public class Main {
 		hare_1.setLocation(new double[width][height]);
 		
 		//make the map (temp)
-		MakeMap mk = new MakeMap();
+		//MakeMap mk = new MakeMap();
 
 		Map mapInfo = new Map();
 		mapInfo.map = amap;
 		generateRandomAnimal(width, height, puma_1, hare_1, mapInfo);
-		//generateRandomPuma gene_p = null;
-		//generateRandomHare gene_h = null;
+		GenerateRandomPuma gene_p = new GenerateRandomPuma();
+		GenerateRandomHare gene_h = new GenerateRandomHare();
 		
-		//a = gene_p.RandomPuma(width, height, a, m);
-		//r = gene_h.RandomHare(width, height, r, m);
+		puma_1.setLocation(gene_p.RandomPuma(width, height, puma_1, mapInfo));
+		hare_1.setLocation(gene_h.RandomHare(width, height, hare_1, mapInfo)); 
 		
 		//do the algorithm
 		CalculateModel cal = new CalculateModel();

@@ -38,12 +38,12 @@ public class CalculateModel {
 		double timeStep = 0.4;
 		int generation = 0;
 		
-		
+		//average density
 		double[] avg_puma = new double[14];
 		double[] avg_hare = new double[14];
 		int count= 0;
-		double total_temp_puma = 0;
-		double total_temp_hare = 0;
+		double total_temp_puma = 0; //total density of all puma in the map
+		double total_temp_hare = 0; //total density of all hare in the map
 		
 		
 		Puma puma_2 = new Puma();
@@ -51,8 +51,7 @@ public class CalculateModel {
 		puma_2.setLocation(new double[width][height]);
 		hare_2.setLocation(new double[width][height]);
 		
-		//average density
-		//double[][] aver_hare = new double[width][height];
+	
 		for(double t = 0; t < 500; ){
 			for(int i = 0; i < width; i++){
 				
