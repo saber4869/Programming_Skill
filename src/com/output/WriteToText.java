@@ -3,7 +3,11 @@ package com.output;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-/**   
+/** 
+ * This class is output text information section
+ * which receive an 2-dimension array and write it to a txt file 
+ * without converting the array to a RGB color array which tell 
+ * the density of hare and puma directly.  
  * @author: Guo Zheng 
  */
 public class WriteToText {
@@ -11,6 +15,7 @@ public class WriteToText {
 	{
 		
 			String filename = "./outputlist/" + animal + "result" + T + ".txt";
+			
 			//write  result assay into text file
 			BufferedWriter writetxt = new BufferedWriter(new FileWriter(filename));
 			
