@@ -1,5 +1,14 @@
 package com.test;
-
+/**********************************************
+* 2017-10-26 FuYu create the class
+*
+* 2017-10-31 FuYu add the test cases 
+*
+** 2017-10-31 LiYixuan add the test cases 
+*
+** 2017-10-31 GuoZheng add the test cases 
+*
+***********************************************/
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -33,6 +42,17 @@ public class TestProject {
 	        System.out.println("Test End!");
 	    }
 
+	    
+	    /**   
+		 * 
+		 * 
+		 * 
+		 * @Package: com.test
+		 * @author: Li Yixuan 
+		 * @throws: IOException 
+		 * @what: test input 
+		 * @date: 31/10/2017
+		 */
 	    
 	    @Test //Test the user input is an integer
 	    public void test_scan() throws Exception {
@@ -68,7 +88,16 @@ public class TestProject {
 	    }
 
 	    
-
+	    /**   
+		 * 
+		 * 
+		 * 
+		 * @Package: com.test
+		 * @author: Fu Yu 
+		 * @throws: IOException 
+		 * @what: test the algorithm 
+		 * @date: 31/10/2017
+		 */
 	    @Test
 	    public void testWidthBorder() throws IOException{
 	    	System.out.println("test height and width start");
@@ -136,6 +165,16 @@ public class TestProject {
 	    	 
 	    }
 	   
+	    /**   
+		 * 
+		 * 
+		 * 
+		 * @Package: com.test
+		 * @author: Guo Zheng 
+		 * @throws: IOException 
+		 * @what: test the output
+		 * @date: 31/10/2017
+		 */
 	    
 	    @Test
 	    public void testOutputText() throws IOException {

@@ -1,4 +1,10 @@
 package com.output;
+/**********************************************
+* 2017-10-30 FuYu create the class
+*
+* 2017-10-31 FuYu add the functions 
+*
+***********************************************/
 import java.awt.Color;
 import java.io.File;  
 import java.io.FileNotFoundException;  
@@ -17,21 +23,32 @@ import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.CategoryDataset;  
 import org.jfree.data.general.DatasetUtilities;  
   
-//JFreeChart Line Chart（折线图）     
+//JFreeChart Line Chart     
 public class JfreechartAverage {  
-    /** 
-     * 创建JFreeChart Line Chart（折线图） 
-     */  
+
     public JfreechartAverage(double[] puma, double[] hare){  
-        // 步骤1：创建CategoryDataset对象（准备数据）  
+        // create CategoryDataset object  
         CategoryDataset dataset = createDataset(puma, hare);  
-        // 步骤2：根据Dataset 生成JFreeChart对象，以及做相应的设置  
+        // According to Dataset,  create JFreeChart object  
         JFreeChart freeChart = createChart(dataset);  
-        // 步骤3：将JFreeChart对象输出到文件，Servlet输出流等  
+        // make JFreeChart in the file 
         saveAsFile(freeChart, "./outputlist/avg.jpg", 2000, 2000);  
     }  
   
-    // 保存为文件  
+	/**   
+	 * 
+	 * 
+	 * 
+	 * @Package: com.output
+	 * @author: Fu Yu  
+	 * @throws: IOException 
+	 * @what: save the chart as a file 
+	 * @param: chart jfreechart object
+	 * @param: outputPath is the path to save 
+	 * @param: weight and height are the size of the file
+	 * @return: void
+	 * @date: 31/10/2017
+	 */
     public static void saveAsFile(JFreeChart chart, String outputPath,  
             int weight, int height) {  
         FileOutputStream out = null;  
@@ -41,9 +58,9 @@ public class JfreechartAverage {
                 outFile.getParentFile().mkdirs();  
             }  
             out = new FileOutputStream(outputPath);  
-            // 保存为PNG  
+            // save as PNG  
             // ChartUtilities.writeChartAsPNG(out, chart, 600, 400);  
-            // 保存为JPEG  
+            // save as JPEG  
             ChartUtilities.writeChartAsJPEG(out, chart, 1000, 1000);  
             out.flush();  
         } catch (FileNotFoundException e) {  
@@ -61,27 +78,38 @@ public class JfreechartAverage {
         }  
     }  
   
-    // 根据CategoryDataset创建JFreeChart对象  
+    /**   
+	 * 
+	 * 
+	 * 
+	 * @Package: com.output
+	 * @author: Fu Yu  
+	 * @throws: IOException 
+	 * @what: create the chart  
+	 * @param: CategoryDataset is the dataset of the picture design
+	 * @return: a JFreeChart object
+	 * @date: 31/10/2017
+	 */
     public static JFreeChart createChart(CategoryDataset categoryDataset) {  
-        // 创建JFreeChart对象：ChartFactory.createLineChart  
-        JFreeChart jfreechart = ChartFactory.createLineChart("density of puma and hare", // 标题  
-                "generation", // categoryAxisLabel （category轴，横轴，X轴标签）  
-                "density", // valueAxisLabel（value轴，纵轴，Y轴的标签）  
+      
+        JFreeChart jfreechart = ChartFactory.createLineChart("density of puma and hare", // title  
+                "generation", // categoryAxisLabel 
+                "density", // valueAxisLabel
                 categoryDataset, // dataset  
                 PlotOrientation.VERTICAL, true, // legend  
                 false, // tooltips  
                 false); // URLs  
-        // 使用CategoryPlot设置各种参数。以下设置可以省略。  
+        
         CategoryPlot plot = (CategoryPlot)jfreechart.getPlot();  
-        // 背景色 透明度  
+        // background  
         plot.setBackgroundAlpha(0.5f);  
-        // 前景色 透明度  
+        // front color
         plot.setForegroundAlpha(0.5f);  
-        // 其他设置 参考 CategoryPlot类  
+        // other design  
         LineAndShapeRenderer renderer = (LineAndShapeRenderer)plot.getRenderer();  
-        renderer.setBaseShapesVisible(true); // series 点（即数据点）可见  
-        renderer.setBaseLinesVisible(true); // series 点（即数据点）间有连线可见  
-        renderer.setUseSeriesOffset(true); // 设置偏移量  
+        renderer.setBaseShapesVisible(true); 
+        renderer.setBaseLinesVisible(true);   
+        renderer.setUseSeriesOffset(true); // offest
         renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());  
         renderer.setBaseItemLabelsVisible(true); 
         renderer.setSeriesPaint(0, new Color(127, 128, 0));  
@@ -90,10 +118,19 @@ public class JfreechartAverage {
         return jfreechart;  
     }  
   
-    /** 
-     * 创建CategoryDataset对象 
-     *  
-     */  
+
+    /**   
+	 * 
+	 * 
+	 * 
+	 * @Package: com.output
+	 * @author: Fu Yu  
+	 * @throws: IOException 
+	 * @what: create the dataset (the line value we need to show)
+	 * @param: puma and hare are the average values we need to draw on the line chart
+	 * @return: a CategoryDataset object
+	 * @date: 31/10/2017
+	 */ 
     public static CategoryDataset createDataset(double[] puma, double[] hare) {  
         String[] rowKeys = {"puma","hare"};  
         String[] colKeys = {"0", "100", "200", "300", "400", "500",  
@@ -101,7 +138,7 @@ public class JfreechartAverage {
                 "1250"};  
         double[][] data = {puma,
         	hare};  
-        // 或者使用类似以下代码  
+        // or use the code below
         // DefaultCategoryDataset categoryDataset = new  
         // DefaultCategoryDataset();  
         // categoryDataset.addValue(10, "rowKey", "colKey");  
