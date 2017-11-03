@@ -254,8 +254,8 @@ public class TestProject {
      	    output.WritePPM(matrixInit,"testPPM",0);
      	
     		BufferedReader readin; 	
-	    	//String fileName="./outputlist/testPPMoutput0.PPM"; //file path on the local
-    	    String fileName="outputlist/testPPMoutput0.PPM"; //file path on the cp-lab
+	    	//String fileName="./outputlist/testPPMoutput0.ppm"; //file path on the local
+    	    String fileName="outputlist/testPPMoutput0.ppm"; //file path on the cp-lab
 		    readin = new BufferedReader( new FileReader (fileName));
       
 		    String line = readin.readLine();
