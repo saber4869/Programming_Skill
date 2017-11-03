@@ -59,9 +59,11 @@ public class TestProject {
 	        System.out.println("Test input number legal");
 	        for(int input = 1; input <= 10; input++){
 	        Assert.assertFalse((input < 1 || input > 10));
+
 	        	//if the user input is a String or not a integer between 1 and 10
 	        }
 	        System.out.println("Test scan successfully.");
+
 	        keyboard.close();
 	    }
 	    
@@ -74,13 +76,13 @@ public class TestProject {
 	        Get2Darray array = new Get2Darray(fileName);
 	    	int[][] matrix = new int[][]{
 	    			{0,1,1,1,1,1,1,1,1,1}, 
-	    			{1,1,1,1,1,1,1,1,1,1},
-	    			{1,1,1,1,1,1,1,1,1,1}, 
-	    			{1,1,1,1,1,1,1,1,1,1}, 
-	    			{1,0,0,0,0,0,0,1,1,1}, 
-	    			{1,0,0,0,0,0,0,0,1,1}, 
-	    			{1,0,0,0,0,0,0,0,1,1}, 
-	    			{1,1,1,1,1,1,1,1,1,1},
+	    			{1,1,1,1,0,0,0,0,0,1}, 
+	    			{1,1,1,1,0,0,0,0,0,1}, 
+	    			{1,0,0,0,0,0,0,0,0,1}, 
+	    			{1,0,0,0,0,0,0,0,0,1}, 
+	    			{1,0,0,0,0,0,0,0,0,1}, 
+	    			{1,0,0,0,0,0,0,0,0,1}, 
+	    			{1,0,0,0,0,0,0,1,1,1},
 	    			{1,1,1,1,1,1,1,1,1,1}, 
 	    			{1,1,1,1,1,1,1,1,1,1}};
 	    	int[] data = array.getHeightandWidth();
@@ -101,8 +103,10 @@ public class TestProject {
 		 */
 	    @Test
 	    public void testWidthBorder() throws IOException{
+
 	    	System.out.println("Test height and width start");
 	    	String fileName="./maplist/10x10.dat";
+
 	        Get2Darray landscape = new Get2Darray(fileName);
 	        int[] heightandwidth = landscape.getHeightandWidth();
 			int height = heightandwidth[0];
@@ -118,13 +122,14 @@ public class TestProject {
 	    
 	    @Test
 	    public void testRandomGenerate() throws IOException {
+
 	    	 System.out.println("Test random generate animal start");
 	    	 String fileName = "./maplist/10x10.dat";
 	         //File initialFile = new File(fileName);
 	 	    //InputStream targetStream = new FileInputStream(initialFile);
+
 	 	    
 	 		Get2Darray landscape = new Get2Darray(fileName);
-	 	    //Get2Darray landscape = new Get2Darray(targetStream);
 	 	    int[] heightandwidth = landscape.getHeightandWidth();
 	 		int height = heightandwidth[0];
 	 		int width = heightandwidth[1];
@@ -196,41 +201,36 @@ public class TestProject {
 		    		{3.754734124847755, 2.100010345308968, 3.188809409044615, 2.2523295321159496, 2.592871157322445, 3.3242531236536017, 2.100082543761745, 1.0064288693746333, 0.9029567316095846, 1.4622318735351385},
 		    		{3.3546617745074903, 4.152696515716726, 2.2317718462751173, 1.2834822858659871, 2.17961176678734, 3.2578249861723485, 2.841381233360676, 1.4288511341156502, 2.686056060023006, 1.8551666536246358},
 	    	};
-     	WriteToText output = new WriteToText();
-     	output.WriteText(matrix,"1.9082987060593666","testText",0);
+     	    WriteToText output = new WriteToText();
+     	    output.WriteText(matrix,"1.9082987060593666","testText",0);
      	
-    		BufferedReader readin; 	
-	    	String fileName="./outputlist/testTextresult0.txt"; 
-		readin = new BufferedReader( new FileReader (fileName));
+    	    BufferedReader readin; 	
+	        //String fileName="./outputlist/testTextresult0.txt"; //file path on the local
+    	    String fileName="outputlist/testTextresult0.txt"; //file path on the cp-lab
+		    readin = new BufferedReader( new FileReader (fileName));
         
-		String line= readin.readLine();
-		String[] a1= line.split(" ");
-
-		Assert.assertEquals("1.9082987060593666",a1[0]);//
+		    String line= readin.readLine();
+		    String[] a1= line.split(" ");
+		    Assert.assertEquals("1.9082987060593666",a1[0]);
 		
-		line= readin.readLine();
-	
-		while (line!=null){ //read line by line
-			String[] linedata = line.split(" "); //read one line of data
-			
-			double[] temparray = new double[10];
-			
-			for(int i=0;i<linedata.length;i++){  //a2.length should equals to width
-				temparray[i] = Double.parseDouble(linedata[i]);
-			}	
-			
-			for(int i = 0;i<10; i++){
-				text[count][i]=temparray[i]; 
-			}
-			count++;
-			//Read next line
-			line = readin.readLine();
-			//Clear the array
-			linedata = null;
-			temparray=new double[10];
-		}
-		readin.close();
-
+		    line= readin.readLine();
+		    while (line!=null){ //read line by line
+			    String[] linedata = line.split(" "); //read one line of data
+			    double[] temparray = new double[10];
+			    for(int i=0;i<linedata.length;i++){  //linedata.length should equals to width
+				    temparray[i] = Double.parseDouble(linedata[i]);
+			    }	
+			    for(int i = 0;i<10; i++){
+				    text[count][i]=temparray[i]; 
+			    }
+			    count++;
+			    //Read next line
+			    line = readin.readLine();
+			    //Clear the array
+			    linedata = null;
+			    temparray=new double[10];
+		    }
+		    readin.close();
 	    	Assert.assertArrayEquals(matrix,text);
 	    	
 	    	System.out.println("Test output successfully");
@@ -239,8 +239,10 @@ public class TestProject {
 	    
 	    @Test
 	    public void testOutputPPM() throws IOException {
+
 	    	System.out.println("Test output PPM");
 	    	int[][] text = new int[3][9];
+
 	    	int count = 0;
 	    	
 	    	double[][] matrixInit = {{0,0,0},{0,0,0},{0,0,0},};
@@ -249,42 +251,38 @@ public class TestProject {
     					{255,255,255,255,255,255,255,255,255,}
 	    			};
     		WriteToPPM output = new WriteToPPM();
-     	output.WritePPM(matrixInit,"testPPM",0);
+     	    output.WritePPM(matrixInit,"testPPM",0);
      	
     		BufferedReader readin; 	
-	    	String fileName="./outputlist/testPPMoutput0.PPM"; 
-		readin = new BufferedReader( new FileReader (fileName));
+	    	//String fileName="./outputlist/testPPMoutput0.PPM"; //file path on the local
+    	    String fileName="outputlist/testPPMoutput0.PPM"; //file path on the cp-lab
+		    readin = new BufferedReader( new FileReader (fileName));
       
-		String line = readin.readLine();
+		    String line = readin.readLine();
 		
-		
-		for(int i =0;i<3;i++) {
-			line = readin.readLine();
+		    for(int i =0;i<3;i++) {
+		    	line = readin.readLine();
 			}
 				
-	
-		while (line!=null){ //read line by line
-			String[] linedata = line.split(" "); //read one line of data
+		    while (line!=null){ //read line by line
+			    String[] linedata = line.split(" "); //read one line of data	
+			    int[] temparray = new int[9];
 			
-			int[] temparray = new int[9];
+			    for(int i=0;i<linedata.length;i++){  //linedata.length should equals to width
+				    temparray[i] =Integer.parseInt(linedata[i]);
+			    }	
 			
-			for(int i=0;i<linedata.length;i++){  //a2.length should equals to width
-				temparray[i] =Integer.parseInt(linedata[i]);
-			}	
-			
-			for(int i = 0;i<9; i++){
-				text[count][i]=temparray[i]; 
-			}
-			count++;
-			
-			//Read next line
-			line = readin.readLine();
-			//Clear the array
-			linedata = null;
-			temparray=new int[9];
-		}
-		readin.close();
-
+			    for(int i = 0;i<9; i++){
+				    text[count][i]=temparray[i]; 
+			    }
+			    count++;
+			    //Read next line
+			    line = readin.readLine();
+			    //Clear the array
+			    linedata = null;
+			    temparray=new int[9];
+		    }
+		    readin.close();
 	    	Assert.assertArrayEquals(matrixTest,text);
 	    	
 	    	System.out.println("Test ouput PPM successfully");
