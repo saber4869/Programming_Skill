@@ -11,14 +11,24 @@ import java.io.IOException;
  * @author: Guo Zheng 
  */
 public class WriteToText {
+	
+	/**   
+	 * 
+	 * @Package: com.output
+	 * @throws: IOException 
+	 * @param resultArray the density of either hare or puma in a 2-dimension array
+	 * @param average average density in this generation
+	 * @param animal tell us which animal we are recording
+	 * @param T the specific cycle that need to write to a ppm file 
+	 * @date: 31/10/2017
+	 */
 	public void WriteText(double[][] resultArray, String average, String animal, int T) throws IOException
 	{
-		
+		    //set filename using animal and T
 			String filename = "./outputlist/" + animal + "result" + T + ".txt";
 			
 			//write  result assay into text file
 			BufferedWriter writetxt = new BufferedWriter(new FileWriter(filename));
-			
 			writetxt.write(average);
 			writetxt.newLine();
 			for(int i = 0; i < resultArray.length; i++){

@@ -30,9 +30,12 @@ public class WriteToPPM {
 	 * This method specify the density of each pixel in a certain range to a color
 	 * and create a new color array for each pixel which store its RGB value.
 	 * Then write this array to a ppm file which can be displayed by a GIMP
+	 * @Package: com.output
+	 * @throws: IOException 
 	 * @param resultArray the density of either hare or puma in a 2-dimension array
 	 * @param animal hare uses pink color, puma uses blue 
-	 * @param T the specific cycle that need to write to a ppm file 
+	 * @param T the specific cycle that need to write to a ppm file
+	 * @ @date: 31/10/2017 
 	 */	
 	public void WritePPM(double[][] resultArray,String animal,int T) throws IOException
 	{	
@@ -182,7 +185,7 @@ public class WriteToPPM {
 					}					
 				}
 		}
-	    //specify filename by animal and cycle
+	    //specify filename by animal and cycle T
 		String filename = "./outputlist/" + animal + "output" + T + ".ppm";
 		//write  RGB color into PPM file
 		BufferedWriter writeppm = new BufferedWriter(new FileWriter(filename));
