@@ -33,12 +33,12 @@ public class TestProject {
 
 	    @Before
 	    public void start() {
-	        System.out.println("Test Start!");
+	        System.out.println("——————————Test Start!——————————");
 	    }
 
 	    @After
 	    public void end() {
-	        System.out.println("Test End!");
+	        System.out.println("——————————Test End!——————————");
 	    }
 
 	    
@@ -56,11 +56,12 @@ public class TestProject {
 	    @Test //Test the user input is an integer
 	    public void test_scan() throws Exception {
 	    	Scanner keyboard = new Scanner(System.in);
-	        System.out.println("Give a number between 1 and 10");
-	        int input = Integer.parseInt(keyboard.nextLine());
+	        System.out.println("Test input number legal");
+	        for(int input = 1; input <= 10; input++){
 	        Assert.assertFalse((input < 1 || input > 10));
 	        	//if the user input is a String or not a integer between 1 and 10
-	        System.out.println("test scan successfully.");
+	        }
+	        System.out.println("Test scan successfully.");
 	        keyboard.close();
 	    }
 	    
@@ -69,7 +70,7 @@ public class TestProject {
 	    public void test_compare() throws IOException {
 	    	//String fileName="./maplist/10x10.dat"; //file path on the local
 	    	String fileName="maplist/10x10.dat"; //file path on the cp-lab
-
+	    	System.out.println("Test read file array");
 	        Get2Darray array = new Get2Darray(fileName);
 	    	int[][] matrix = new int[][]{
 	    			{0,1,1,1,1,1,1,1,1,1}, 
@@ -84,6 +85,7 @@ public class TestProject {
 	    			{1,1,1,1,1,1,1,1,1,1}};
 	    	int[] data = array.getHeightandWidth();
 	    	Assert.assertArrayEquals(matrix,array.getMap(data[0],data[1]));
+	    	System.out.println("Test successfully");
 	    }
 
 	    
@@ -99,7 +101,7 @@ public class TestProject {
 		 */
 	    @Test
 	    public void testWidthBorder() throws IOException{
-	    	System.out.println("test height and width start");
+	    	System.out.println("Test height and width start");
 	    	String fileName="./maplist/10x10.dat";
 	        Get2Darray landscape = new Get2Darray(fileName);
 	        int[] heightandwidth = landscape.getHeightandWidth();
@@ -107,16 +109,16 @@ public class TestProject {
 			int width = heightandwidth[1];
 			Assert.assertNotNull(height);
 			Assert.assertNotNull(width);
-			System.out.println("height and width are not null");
+			System.out.println("Test height and width are not null");
 			Assert.assertFalse(height<=0 || width <=0 || height > 2000 || width >2000);
-			System.out.println("height and width are legal");
+			System.out.println("Test height and width are legal");
 			
 			
 	    } 
 	    
 	    @Test
 	    public void testRandomGenerate() throws IOException {
-	    	 System.out.println("test random generate animal start");
+	    	 System.out.println("Test random generate animal start");
 	    	 String fileName = "./maplist/10x10.dat";
 	         //File initialFile = new File(fileName);
 	 	    //InputStream targetStream = new FileInputStream(initialFile);
@@ -153,15 +155,15 @@ public class TestProject {
 	    		}
 	    	}
 	    	 
-	    	 System.out.println("random generate values are legal");
+	    	 System.out.println("Test random generate values are legal");
 	    }
 	    
 	    @Test
 	    public void testAlgorithm() throws IOException {
-	    	 System.out.println("test algorithm start");
+	    	 System.out.println("Test algorithm start");
 	    	 Main.main(null);
 	    	 Assert.assertEquals(Main.getFlag(),1);
-	    	 System.out.println("test algorithm successfully");
+	    	 System.out.println("Test algorithm successfully");
 	    	 
 	    }
 	   
@@ -178,7 +180,7 @@ public class TestProject {
 	    
 	    @Test
 	    public void testOutputText() throws IOException {
-	     	
+	    	System.out.println("Test output test ");
 	    	double[][] text = new double[10][10];
 	    	int count = 0;
 	    	
@@ -230,12 +232,14 @@ public class TestProject {
 		readin.close();
 
 	    	Assert.assertArrayEquals(matrix,text);
+	    	
+	    	System.out.println("Test output successfully");
 	    }
 	    
 	    
 	    @Test
 	    public void testOutputPPM() throws IOException {
-	     	
+	    	System.out.println("Test output PPM");
 	    	int[][] text = new int[3][9];
 	    	int count = 0;
 	    	
@@ -282,5 +286,7 @@ public class TestProject {
 		readin.close();
 
 	    	Assert.assertArrayEquals(matrixTest,text);
+	    	
+	    	System.out.println("Test ouput PPM successfully");
 	    }
 }

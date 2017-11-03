@@ -156,7 +156,7 @@ public class CalculateModel {
 	
 		//print part
 			
-			if(generation%100 == 0 || generation == 1249){
+			if(generation%100 == 0 || generation == 1250){
 				
 				// calculate average
 				for(int i =0; i <width; i++){
@@ -193,10 +193,12 @@ public class CalculateModel {
 			t = t+timeStep;	 //time going up
 			generation++;
 		}
-		System.out.println(generation);
+		//System.out.println(generation);
 		WriteToPPM output = new WriteToPPM(); //get the output
-		output.WritePPM(puma_2.getLocation(),"hare",1250);
+		output.WritePPM(puma_2.getLocation(),"puma",1250);
+		output.WritePPM(hare_2.getLocation(),"hare",1250);
 		JfreechartAverage test = new JfreechartAverage(avg_puma,avg_hare);
+		
 
 	}
 	
