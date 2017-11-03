@@ -1,44 +1,30 @@
 package com.input;
 import java.io.*;
-
-import com.main.Main;
 /**
- * @author Yixuan Li
- * @date 2017-Oct-31
- * @what read from file and get width,height and 2D array data from it.
+ * @author: Yixuan Li
+ * @date: 2017-Oct-31
+ * @what: read from the file to get width,height and 2D array data.
  * 
  */
 public class Get2Darray {
 	String fileName;
 	int height,width;
 	BufferedReader readin;
-	//--add new--
-	InputStream targetStream;
 	
 	/**
 	  * @what Define the landscape to be read
 	  * @param file: the path of document
-	 * @throws UnsupportedEncodingException 
+	  * @throws FileNotFoundException 
 	  */
-	public Get2Darray(String file) throws FileNotFoundException, UnsupportedEncodingException{
-	//public Get2Darray(InputStream targetStream) throws FileNotFoundException, UnsupportedEncodingException{
-		System.out.println("file: "+file);
+	public Get2Darray(String file) throws FileNotFoundException{
 		this.fileName=file;
-		//--test--
-		//InputStream is = ClassLoader.getSystemResourceAsStream("/maplist/10x10.dat");
-		//InputStream is = Thread.currentThread().getContextClassLoader().getResource("./maplist/10x10.dat");
-		//System.out.println("is: "+is);
-		//readin = new BufferedReader(new InputStreamReader(is));
-		//this.targetStream=targetStream;
-	    //System.out.println("targetStream: "+targetStream);
-	    //readin = new BufferedReader(new InputStreamReader(targetStream, "UTF-8"));
-		//--old--
         readin = new BufferedReader( new FileReader (fileName));
 	}
 	
 	/**
 	  * @what Get height and width of landscape
 	  * @param file: the path of document
+	  * @throws IOException
 	  * @return 1D array include height and width
 	  */
 	public int[] getHeightandWidth() throws IOException{
@@ -54,6 +40,7 @@ public class Get2Darray {
 	/**
 	  * @what Get data inside landscape
 	  * @param file: the path of document
+	  * @throws IOException
 	  * @return Map (2D array) 
 	  */
 	public int[][] getMap(int height,int width) throws IOException{
@@ -66,7 +53,7 @@ public class Get2Darray {
 		while (line!=null){ //read line by line
 			String[] linedata = line.split(" "); //read one line of data
 			//String array to int Array
-			for(i=0;i<linedata.length;i++){  //a2.length should equals to width
+			for(i=0;i<linedata.length;i++){  //linedata.length should equals to width
 				array[i]=Integer.parseInt(linedata[i]);
 			}	
 			//int array to int 2D Array: height*width

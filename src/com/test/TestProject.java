@@ -1,5 +1,14 @@
 package com.test;
-
+/**********************************************
+* 2017-10-26 FuYu create the class
+*
+* 2017-10-31 FuYu add the test cases 
+*
+** 2017-10-31 LiYixuan add the test cases 
+*
+** 2017-10-31 GuoZheng add the test cases 
+*
+***********************************************/
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,40 +21,54 @@ import org.junit.Test;
 
 import com.input.Get2Darray;
 import com.main.Main;
+import com.map.Map;
 import com.output.WriteToPPM;
-//import com.output.WriteToPPM;
 import com.output.WriteToText;
 import com.algorithm.CalculateModel;
+import com.algorithm.GenerateRandomHare;
+import com.algorithm.GenerateRandomPuma;
+import com.animal.Hare;
+import com.animal.Puma;
 public class TestProject {
 
-	  @Before
+	    @Before
 	    public void start() {
-	        System.out.println("Code Start!");
+	        System.out.println("Test Start!");
 	    }
 
 	    @After
 	    public void end() {
-	        System.out.println("Code End!");
+	        System.out.println("Test End!");
 	    }
 
+	    
+	    /**   
+		 * 
+		 * 
+		 * 
+		 * @Package: com.test
+		 * @author: Li Yixuan 
+		 * @throws: IOException 
+		 * @what: test input 
+		 * @date: 31/10/2017
+		 */
 	    
 	    @Test //Test the user input is an integer
 	    public void test_scan() throws Exception {
 	    	Scanner keyboard = new Scanner(System.in);
 	        System.out.println("Give a number between 1 and 10");
 	        int input = Integer.parseInt(keyboard.nextLine());
-	        if(input < 1 || input > 10) {
+	        Assert.assertFalse((input < 1 || input > 10));
 	        	//if the user input is a String or not a integer between 1 and 10
-	            System.out.println("Wrong number.");
-	        }   
+	        System.out.println("test scan successfully.");
 	        keyboard.close();
 	    }
 	    
 
 	    @Test //Test the data in the file has been read as its original
 	    public void test_compare() throws IOException {
-
-	    	String fileName="./maplist/10x10.dat"; 
+	    	//String fileName="./maplist/10x10.dat"; //file path on the local
+	    	String fileName="maplist/10x10.dat"; //file path on the cp-lab
 
 	        Get2Darray array = new Get2Darray(fileName);
 	    	int[][] matrix = new int[][]{
@@ -64,19 +87,94 @@ public class TestProject {
 	    }
 
 	    
-
-
+	    /**   
+		 * 
+		 * 
+		 * 
+		 * @Package: com.test
+		 * @author: Fu Yu 
+		 * @throws: IOException 
+		 * @what: test the algorithm 
+		 * @date: 31/10/2017
+		 */
 	    @Test
-	    public void testAlgorithm() throws IOException {
-	    	 System.out.println("test algorithm start");
-	    	 CalculateModel model = new CalculateModel();
-	    }
+	    public void testWidthBorder() throws IOException{
+	    	System.out.println("test height and width start");
+	    	String fileName="./maplist/10x10.dat";
+	        Get2Darray landscape = new Get2Darray(fileName);
+	        int[] heightandwidth = landscape.getHeightandWidth();
+			int height = heightandwidth[0];
+			int width = heightandwidth[1];
+			Assert.assertNotNull(height);
+			Assert.assertNotNull(width);
+			System.out.println("height and width are not null");
+			Assert.assertFalse(height<=0 || width <=0 || height > 2000 || width >2000);
+			System.out.println("height and width are legal");
+			
+			
+	    } 
+	    
 	    @Test
 	    public void testRandomGenerate() throws IOException {
 	    	 System.out.println("test random generate animal start");
-	    	 Main main = new Main();
-	    	
+	    	 String fileName = "./maplist/10x10.dat";
+	         //File initialFile = new File(fileName);
+	 	    //InputStream targetStream = new FileInputStream(initialFile);
+	 	    
+	 		Get2Darray landscape = new Get2Darray(fileName);
+	 	    //Get2Darray landscape = new Get2Darray(targetStream);
+	 	    int[] heightandwidth = landscape.getHeightandWidth();
+	 		int height = heightandwidth[0];
+	 		int width = heightandwidth[1];
+	 		int[][] amap = landscape.getMap(height, width);
+	 		
+	 		Puma puma_1 = new Puma();
+	 		puma_1.setLocation(new double[width][height]);
+	 		Hare hare_1 = new Hare();
+	 		hare_1.setLocation(new double[width][height]);
+	 		
+	 		//make the map (temp)
+	 		//MakeMap mk = new MakeMap();
+
+	 		Map mapInfo = new Map();
+	 		mapInfo.map = amap;
+	 		//generateRandomAnimal(width, height, puma_1, hare_1, mapInfo);
+	 		
+	 		GenerateRandomPuma gene_p = new GenerateRandomPuma();
+	 		GenerateRandomHare gene_h = new GenerateRandomHare();
+	 		
+	 		puma_1.setLocation(gene_p.RandomPuma(width, height, puma_1, mapInfo));
+	 		hare_1.setLocation(gene_h.RandomHare(width, height, hare_1, mapInfo));
+	    	 
+	    	for(int i = 0; i < width; i++){
+	    		for(int j = 0 ; j < height; j++){
+	    			Assert.assertTrue(puma_1.getLocation()[i][j] <=5 && puma_1.getLocation()[i][j] >=0);
+	    			Assert.assertTrue(hare_1.getLocation()[i][j] <=5 && hare_1.getLocation()[i][j] >=0);
+	    		}
+	    	}
+	    	 
+	    	 System.out.println("random generate values are legal");
 	    }
+	    
+	    @Test
+	    public void testAlgorithm() throws IOException {
+	    	 System.out.println("test algorithm start");
+	    	 Main.main(null);
+	    	 Assert.assertEquals(Main.getFlag(),1);
+	    	 System.out.println("test algorithm successfully");
+	    	 
+	    }
+	   
+	    /**   
+		 * 
+		 * 
+		 * 
+		 * @Package: com.test
+		 * @author: Guo Zheng 
+		 * @throws: IOException 
+		 * @what: test the output
+		 * @date: 31/10/2017
+		 */
 	    
 	    @Test
 	    public void testOutputText() throws IOException {

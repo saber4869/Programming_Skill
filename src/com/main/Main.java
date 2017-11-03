@@ -12,15 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
-
-
-
-
-
 
 import com.algorithm.CalculateModel;
 import com.algorithm.GenerateRandomHare;
@@ -36,16 +29,17 @@ import com.map.Map;
  * 
  * 
  * 
- * @Package: com.action
+ * @Package: com.main
  * @author: Fu Yu  
  * @date: 16/10/2017
+ * @what: Main function
  */
 
 public class Main {
 
 	/**
 	  * @author Fu Yu
-	  * @date 2017-10-19
+	  * @date 2017-Oct-19
 	  * @what generate the random density of puma and hare
 	  * @param: width and height are the two attributes of map
 	  * @param: puma_1 is the initial puma info
@@ -74,6 +68,12 @@ public class Main {
 		}
 	}
 	
+	/**
+	  * @author Fu Yu & Yixuan Li
+	  * @date 2017-Nov-01
+	  * @what Main function, begin with reading input file,then run the algorithm,and last get output.
+	  * @return void
+	  */
 	public static void main(String[] args) throws IOException{
 		
 		
@@ -81,12 +81,9 @@ public class Main {
 		
 		
 		//initialize the puma and hare information
-        String fileName = "./maplist/10x10.dat";
-        //File initialFile = new File(fileName);
-	    //InputStream targetStream = new FileInputStream(initialFile);
-	    
+        //String fileName = "./maplist/10x10.dat"; //file path on local
+		String fileName = "maplist/10x10.dat"; //file path on the cp-lab
 		Get2Darray landscape = new Get2Darray(fileName);
-	    //Get2Darray landscape = new Get2Darray(targetStream);
 	    int[] heightandwidth = landscape.getHeightandWidth();
 		int height = heightandwidth[0];
 		int width = heightandwidth[1];
@@ -116,6 +113,20 @@ public class Main {
 		
 		long endTime=System.currentTimeMillis(); //get the end time 
 		System.out.println("total time: "+(endTime-startTime)+"ms");
+		
+		flag=1;
 	}
+	
+	public static int flag = 0;
+
+	public static int getFlag() {
+		return flag;
+	}
+
+	public static void setFlag(int flag) {
+		Main.flag = flag;
+	}
+	
+	
 }
 
