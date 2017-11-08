@@ -181,7 +181,7 @@ public class CalculateModel {
 				WriteToPPM output = new WriteToPPM(); //get the output
 				output.WritePPM(puma_2.getLocation(),"puma",generation);
 				output.WritePPM(hare_2.getLocation(),"hare",generation);
-				System.out.println(generation+" "+count+" "+avg_puma[count]+" "+avg_hare[count]+"");
+				System.out.println("generation:"+generation+"  puma_average:"+avg_puma[count]+"  hare_average:"+avg_hare[count]+"");
 				count ++;
 				
 			}
