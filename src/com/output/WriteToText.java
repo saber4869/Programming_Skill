@@ -25,7 +25,12 @@ public class WriteToText {
 	public void WriteText(double[][] resultArray, String average, String animal, int T) throws IOException
 	{
 		    //set filename using animal and T
-			String filename = "./outputlist/" + animal + "result" + T + ".txt";
+			String filename = null;
+					if(T<1000){
+					filename="./outputlist/" + animal + "result00" + T + ".txt";}
+					else{
+						filename="./outputlist/" + animal + "result0" + T + ".txt";
+					}
 			
 			//write  result assay into text file
 			BufferedWriter writetxt = new BufferedWriter(new FileWriter(filename));

@@ -23,15 +23,15 @@ import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.CategoryDataset;  
 import org.jfree.data.general.DatasetUtilities;  
   
-//JFreeChart Line Chart     
+    
 public class JfreechartAverage {  
 
     public JfreechartAverage(double[] puma, double[] hare){  
-        // create CategoryDataset object  
+
         CategoryDataset dataset = createDataset(puma, hare);  
-        // According to Dataset,  create JFreeChart object  
+
         JFreeChart freeChart = createChart(dataset);  
-        // make JFreeChart in the file 
+  
         saveAsFile(freeChart, "./outputlist/avg.jpg", 2000, 2000);  
     }  
   
@@ -58,9 +58,7 @@ public class JfreechartAverage {
                 outFile.getParentFile().mkdirs();  
             }  
             out = new FileOutputStream(outputPath);  
-            // save as PNG  
-            // ChartUtilities.writeChartAsPNG(out, chart, 600, 400);  
-            // save as JPEG  
+ 
             ChartUtilities.writeChartAsJPEG(out, chart, 1000, 1000);  
             out.flush();  
         } catch (FileNotFoundException e) {  
@@ -72,7 +70,7 @@ public class JfreechartAverage {
                 try {  
                     out.close();  
                 } catch (IOException e) {  
-                    // do nothing  
+                   
                 }  
             }  
         }  
@@ -93,23 +91,23 @@ public class JfreechartAverage {
     public static JFreeChart createChart(CategoryDataset categoryDataset) {  
       
         JFreeChart jfreechart = ChartFactory.createLineChart("density of puma and hare", // title  
-                "generation", // categoryAxisLabel 
-                "density", // valueAxisLabel
-                categoryDataset, // dataset  
-                PlotOrientation.VERTICAL, true, // legend  
-                false, // tooltips  
-                false); // URLs  
+                "generation", 
+                "density", 
+                categoryDataset,  
+                PlotOrientation.VERTICAL, true, 
+                false, 
+                false); 
         
         CategoryPlot plot = (CategoryPlot)jfreechart.getPlot();  
-        // background  
+        
         plot.setBackgroundAlpha(0.5f);  
-        // front color
+       
         plot.setForegroundAlpha(0.5f);  
-        // other design  
+      
         LineAndShapeRenderer renderer = (LineAndShapeRenderer)plot.getRenderer();  
         renderer.setBaseShapesVisible(true); 
         renderer.setBaseLinesVisible(true);   
-        renderer.setUseSeriesOffset(true); // offest
+        renderer.setUseSeriesOffset(true); 
         renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());  
         renderer.setBaseItemLabelsVisible(true); 
         renderer.setSeriesPaint(0, new Color(127, 128, 0));  
@@ -138,10 +136,7 @@ public class JfreechartAverage {
                 "1250"};  
         double[][] data = {puma,
         	hare};  
-        // or use the code below
-        // DefaultCategoryDataset categoryDataset = new  
-        // DefaultCategoryDataset();  
-        // categoryDataset.addValue(10, "rowKey", "colKey");  
+  
         return DatasetUtilities.createCategoryDataset(rowKeys, colKeys, data);  
     }  
 }  

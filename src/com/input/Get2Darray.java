@@ -53,7 +53,7 @@ public class Get2Darray {
 		while (line!=null){ //read line by line
 			String[] linedata = line.split(" "); //read one line of data
 			//String array to int Array
-			for(i=0;i<linedata.length;i++){  //linedata.length should equals to width
+			for(i=0;i<width;i++){  //linedata.length should equals to width
 				array[i]=Integer.parseInt(linedata[i]);
 			}	
 			//int array to int 2D Array: height*width

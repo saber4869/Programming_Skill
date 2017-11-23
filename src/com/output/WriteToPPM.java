@@ -39,8 +39,8 @@ public class WriteToPPM {
 	 */	
 	public void WritePPM(double[][] resultArray,String animal,int T) throws IOException
 	{	
-		this.width = resultArray.length;
-		this.height = resultArray[0].length;
+		this.height = resultArray.length;
+		this.width = resultArray[0].length;
 		this.pixelColor = new Color[height][width];
 		
 		//set pink colors for hare
@@ -72,9 +72,9 @@ public class WriteToPPM {
 		if(animal == "hare") 
 		{
 			//assign different depth of color for each pixel of hare array
-			for (i = 0; i < width; i++)
+			for (i = 0; i < height; i++)
 			{
-				for (j = 0; j < height; j++)
+				for (j = 0; j < width; j++)
 				{
 					if(resultArray[i][j]<0.1)
 					{
@@ -130,9 +130,9 @@ public class WriteToPPM {
 		else
 		{
 			//assign different depth of color for each pixel of puma array
-			for (i = 0; i < width; i++)
+			for (i = 0; i < height; i++)
 			{
-				for (j = 0; j < height; j++)
+				for (j = 0; j < width; j++)
 				{
 					if(resultArray[i][j]<0.1)
 					{
@@ -186,8 +186,14 @@ public class WriteToPPM {
 				}
 		}
 	    //specify filename by animal and cycle T
-		//String filename = "./outputlist/" + animal + "output" + T + ".ppm"; //file path on local
-		String filename = "outputlist/" + animal + "output" + T + ".ppm"; //file path on cp-lab
+		
+		String  filename = null;//String filename = "./outputlist/" + animal + "output" + T + ".ppm"; //file path on local
+		if(T<1000){
+			filename = "./outputlist/" + animal + "output00" + T + ".ppm";}
+		else{
+			filename = "./outputlist/" + animal + "output0" + T + ".ppm";
+			//file path on cp-lab
+		}
 		//write  RGB color into PPM file
 		BufferedWriter writeppm = new BufferedWriter(new FileWriter(filename));
 		writeppm.write("P3");
